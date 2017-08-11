@@ -14,6 +14,7 @@
 		134266DA1F3D203900018BCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 134266D91F3D203900018BCB /* Assets.xcassets */; };
 		134266DD1F3D203900018BCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 134266DB1F3D203900018BCB /* LaunchScreen.storyboard */; };
 		134266E51F3D20FD00018BCB /* RecViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134266E41F3D20FD00018BCB /* RecViewController.swift */; };
+		137144321F3E637E0050A25A /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137144311F3E637E0050A25A /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		134266DC1F3D203900018BCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		134266DE1F3D203900018BCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		134266E41F3D20FD00018BCB /* RecViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecViewController.swift; sourceTree = "<group>"; };
+		137144311F3E637E0050A25A /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				134266CF1F3D203900018BCB /* AppDelegate.swift */,
 				134266D11F3D203900018BCB /* LoginViewController.swift */,
 				134266E41F3D20FD00018BCB /* RecViewController.swift */,
+				137144311F3E637E0050A25A /* CollectionViewCell.swift */,
 				134266D31F3D203900018BCB /* Main.storyboard */,
 				134266D91F3D203900018BCB /* Assets.xcassets */,
 				134266DB1F3D203900018BCB /* LaunchScreen.storyboard */,
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				137144321F3E637E0050A25A /* CollectionViewCell.swift in Sources */,
 				134266D21F3D203900018BCB /* LoginViewController.swift in Sources */,
 				134266D81F3D203900018BCB /* urSteps.xcdatamodeld in Sources */,
 				134266D01F3D203900018BCB /* AppDelegate.swift in Sources */,
@@ -310,6 +314,7 @@
 				134266E31F3D203900018BCB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
