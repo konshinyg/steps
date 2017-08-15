@@ -19,6 +19,8 @@ class CollectionViewCell: UICollectionViewCell, AVAudioRecorderDelegate, AVAudio
     
     @IBOutlet weak var play: UIButton!
     
+    @IBOutlet weak var stop: UIButton!
+    
     @IBOutlet weak var label: UILabel!
     
     @IBOutlet weak var timerBar: UILabel!
@@ -33,12 +35,11 @@ class CollectionViewCell: UICollectionViewCell, AVAudioRecorderDelegate, AVAudio
     
     func updateAudioMeter(_ timer:Timer) {
         if let recorder = self.recorder {
-            if recorder.isRecording {
+            if recorder.isRecording || player.isPlaying {
                 let min = Int(recorder.currentTime / 60)
                 let sec = Int(recorder.currentTime.truncatingRemainder(dividingBy: 60))
                 let s = String(format: "%02d:%02d", min, sec)
                 timerBar.text = s
-                recorder.updateMeters()
                 progressBar.progressTintColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
                 progressBar.progress += 0.001
             }
@@ -58,7 +59,8 @@ class CollectionViewCell: UICollectionViewCell, AVAudioRecorderDelegate, AVAudio
             print("recording. recorder nil")
             rec.setTitle("Pause", for:.normal)
             play.isEnabled = false
-            delete.isEnabled = true
+            stop.isEnabled = true
+            delete.isEnabled = false
             recordWithPermission(true)
             return
         }
@@ -66,26 +68,28 @@ class CollectionViewCell: UICollectionViewCell, AVAudioRecorderDelegate, AVAudio
         if recorder != nil && recorder.isRecording {
             print("pausing")
             recorder.pause()
+            play.isEnabled = true
+            stop.isEnabled = true
             rec.setTitle("Continue", for:.normal)
             
         } else {
             print("recording")
             rec.setTitle("Pause", for:.normal)
             play.isEnabled = false
-            delete.isEnabled = true
+            delete.isEnabled = false
+            stop.isEnabled = true
             recordWithPermission(false)
         }
     }
     
     @IBAction func playButton(_ sender: UIButton) {
         play.isEnabled = false
+        stop.isEnabled = true
         playplay()
     }
     
     func playplay() {
-        
         print("\(#function)")
-        
         var url:URL?
         if self.recorder != nil {
             url = self.recorder.url
@@ -96,7 +100,7 @@ class CollectionViewCell: UICollectionViewCell, AVAudioRecorderDelegate, AVAudio
         
         do {
             self.player = try AVAudioPlayer(contentsOf: url!)
-            delete.isEnabled = true
+            delete.isEnabled = false
             player.delegate = self
             player.prepareToPlay()
             player.volume = 1.0
@@ -112,7 +116,7 @@ class CollectionViewCell: UICollectionViewCell, AVAudioRecorderDelegate, AVAudio
         }
     }
     
-    @IBAction func deleteButton(_ sender: UIButton) {
+    @IBAction func stop(_ sender: UIButton) {
         
         print("\(#function)")
         
@@ -120,20 +124,35 @@ class CollectionViewCell: UICollectionViewCell, AVAudioRecorderDelegate, AVAudio
         player?.stop()
         
         meterTimer.invalidate()
-        
+        progressBar.progress = 0
         rec.setTitle("Record", for: .normal)
         let session = AVAudioSession.sharedInstance()
         do {
             try session.setActive(false)
             play.isEnabled = true
-            delete.isEnabled = false
+            delete.isEnabled = true
             rec.isEnabled = true
+            stop.isEnabled = false
         } catch {
             print("could not make session inactive")
             print(error.localizedDescription)
         }
     }
-
+    
+    @IBAction func deleteButton(_ sender: UIButton) {
+        let url = self.soundFileURL!
+        print("removing file at \(url.absoluteString)")
+        let fileManager = FileManager.default
+        
+        do {
+            try fileManager.removeItem(at: url)
+        } catch {
+            print(error.localizedDescription)
+            print("error deleting recording")
+        }
+        progressBar.progress = 0
+    }
+    
     func recordWithPermission(_ setup:Bool) {
         print("\(#function)")
         

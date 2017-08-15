@@ -27,6 +27,9 @@ class RecViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
         cell.label.text = String(questions[indexPath.row])
+        cell.delete.isEnabled = false
+        cell.play.isEnabled = false
+        cell.stop.isEnabled = false
         return cell
     }
 }

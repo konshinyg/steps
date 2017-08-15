@@ -14,12 +14,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginDataLabel: UILabel!
     
     @IBAction func enterData(_ sender: UIButton) {
-        let user = "Core"
-        let pass = "123"
+        let user = "c"
+        let pass = "c"
         
         if username.text == user && password.text == pass {
             loginDataLabel.text = "Correct data!"
-            
+            loginAccess()
         }
         else {
             loginDataLabel.text = "Incorrect data!"
@@ -28,6 +28,11 @@ class LoginViewController: UIViewController {
         password.resignFirstResponder()
 
     }
+    func loginAccess() {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "recViewID")
+        self.present(vc!, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
