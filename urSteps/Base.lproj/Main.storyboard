@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ztC-PO-MwS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -54,19 +54,49 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="rNg-WJ-zfa"/>
                     <navigationItem key="navigationItem" title="Login" id="Jz3-JX-B9r"/>
                     <connections>
                         <outlet property="loginDataLabel" destination="gBN-jM-mCo" id="JDH-zI-ZB3"/>
                         <outlet property="password" destination="5xk-9G-tj9" id="vC4-aq-kGL"/>
                         <outlet property="username" destination="IwN-md-0nG" id="myt-Kc-rdI"/>
-                        <segue destination="07n-xo-JTb" kind="show" identifier="loginToRecSegue" id="y45-UX-HDT"/>
+                        <segue destination="hsD-jH-TtI" kind="show" id="68A-n4-ggw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="764" y="792.95352323838085"/>
+            <point key="canvasLocation" x="3417" y="-95"/>
         </scene>
-        <!--Rec View Controller-->
+        <!--Info-->
+        <scene sceneID="cx6-4Y-t5g">
+            <objects>
+                <viewController storyboardIdentifier="InfoViewID" id="hsD-jH-TtI" customClass="InfoViewController" customModule="urSteps" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="643-fb-vd0"/>
+                        <viewControllerLayoutGuide type="bottom" id="jkw-gb-Tns"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VEJ-mb-E75" userLabel="InfoView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HsJ-wG-xCs">
+                                <rect key="frame" x="10" y="28" width="74" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="RecView"/>
+                                <connections>
+                                    <segue destination="07n-xo-JTb" kind="show" id="4Cw-hT-3Cn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Info" id="gUt-rc-s21"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LnX-3b-fpU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4506" y="-96"/>
+        </scene>
+        <!--Records-->
         <scene sceneID="GVR-kn-oFb">
             <objects>
                 <collectionViewController storyboardIdentifier="recViewID" id="07n-xo-JTb" customClass="RecViewController" customModule="urSteps" customModuleProvider="target" sceneMemberID="viewController">
@@ -156,28 +186,11 @@
                             <outlet property="delegate" destination="07n-xo-JTb" id="bQi-aC-NFS"/>
                         </connections>
                     </collectionView>
+                    <tabBarItem key="tabBarItem" title="Records" id="nvD-eR-goK"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MbJ-cr-bG1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1560.8" y="792.95352323838085"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="UVb-KW-YeS">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ztC-PO-MwS" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eKl-kJ-xae">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="XBr-Ed-kk4"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nuE-mE-6DT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="764" y="53"/>
+            <point key="canvasLocation" x="4506" y="735"/>
         </scene>
     </scenes>
 </document>
