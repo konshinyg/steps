@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
 
     }
     func loginAccess() {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "InfoViewID")
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarID")
         self.present(vc!, animated: true, completion: nil)
     }
     
