@@ -17,6 +17,8 @@
 		134266E51F3D20FD00018BCB /* RecViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134266E41F3D20FD00018BCB /* RecViewController.swift */; };
 		137144321F3E637E0050A25A /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137144311F3E637E0050A25A /* CollectionViewCell.swift */; };
 		13804B011F58645C005D2E10 /* AddContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13804B001F58645C005D2E10 /* AddContentViewController.swift */; };
+		13804B031F58CA60005D2E10 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13804B021F58CA60005D2E10 /* UserData.swift */; };
+		13804B091F58D1BE005D2E10 /* workers.txt in Resources */ = {isa = PBXBuildFile; fileRef = 13804B081F58D1BE005D2E10 /* workers.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		134266E41F3D20FD00018BCB /* RecViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecViewController.swift; sourceTree = "<group>"; };
 		137144311F3E637E0050A25A /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		13804B001F58645C005D2E10 /* AddContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContentViewController.swift; sourceTree = "<group>"; };
+		13804B021F58CA60005D2E10 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		13804B081F58D1BE005D2E10 /* workers.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = workers.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +52,7 @@
 		134266C31F3D203800018BCB = {
 			isa = PBXGroup;
 			children = (
+				13804B081F58D1BE005D2E10 /* workers.txt */,
 				134266CE1F3D203900018BCB /* urSteps */,
 				134266CD1F3D203900018BCB /* Products */,
 			);
@@ -69,6 +74,7 @@
 				134266E41F3D20FD00018BCB /* RecViewController.swift */,
 				137144311F3E637E0050A25A /* CollectionViewCell.swift */,
 				134266D31F3D203900018BCB /* Main.storyboard */,
+				13804B021F58CA60005D2E10 /* UserData.swift */,
 				13804B001F58645C005D2E10 /* AddContentViewController.swift */,
 				132560F91F5851E300ABA71E /* InfoViewController.swift */,
 				134266D91F3D203900018BCB /* Assets.xcassets */,
@@ -141,6 +147,7 @@
 			files = (
 				134266DD1F3D203900018BCB /* LaunchScreen.storyboard in Resources */,
 				134266DA1F3D203900018BCB /* Assets.xcassets in Resources */,
+				13804B091F58D1BE005D2E10 /* workers.txt in Resources */,
 				134266D51F3D203900018BCB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,6 +161,7 @@
 			files = (
 				137144321F3E637E0050A25A /* CollectionViewCell.swift in Sources */,
 				13804B011F58645C005D2E10 /* AddContentViewController.swift in Sources */,
+				13804B031F58CA60005D2E10 /* UserData.swift in Sources */,
 				134266D21F3D203900018BCB /* LoginViewController.swift in Sources */,
 				134266D81F3D203900018BCB /* urSteps.xcdatamodeld in Sources */,
 				132560FA1F5851E300ABA71E /* InfoViewController.swift in Sources */,
