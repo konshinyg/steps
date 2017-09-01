@@ -1,0 +1,3 @@
+{"usercount": 3,
+"users": [
+{"id":01, "surname":"Грачевский", "name":"Федор", "fatherName":"Александрович", "gender":"male", "jobSearchStatus":"active", "birthdayDate":"01.04.1985", "region":"Москва", "phone":"+79879050431"}, {"id":02, "surname":"Коньшин", "name":"Юджин", "fatherName":"Фиолетович", "gender":"male", "jobSearchStatus":"active", "birthdayDate":"26.02.1984", "region":"Санкт-Петербург", "phone":"+79859280879"}, {"id":03, "surname":"Chi", "name":"Foo", "fatherName":"Man", "gender":"female", "jobSearchStatus":"non-active", "birthdayDate":"05.01.1967", "region":"MaanchGoo", "phone":"+79374536271"}]}

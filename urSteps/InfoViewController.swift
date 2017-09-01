@@ -1,21 +1,23 @@
-//
-//  SeconViewController.swift
-//  urSteps
-//
-//  Created by Core on 31.08.17.
-//  Copyright © 2017 Cornelius. All rights reserved.
-//
 
 import UIKit
 
 class InfoViewController: UIViewController {
     
+    @IBOutlet weak var texter: UITextView!
+    var text: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        readFromFile()
+        texter.text = LoginViewController.token
     }
-
+    
+    func readFromFile() {
+        if let path = Bundle.main.path(forResource: "workers", ofType: "txt") {
+            text = try! String(contentsOfFile: path, encoding: String.Encoding.windowsCP1251)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

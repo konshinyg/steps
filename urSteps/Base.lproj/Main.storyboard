@@ -59,23 +59,21 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="rNg-WJ-zfa"/>
                     <navigationItem key="navigationItem" title="Login" id="Jz3-JX-B9r"/>
                     <connections>
                         <outlet property="loginDataLabel" destination="gBN-jM-mCo" id="JDH-zI-ZB3"/>
                         <outlet property="password" destination="5xk-9G-tj9" id="vC4-aq-kGL"/>
                         <outlet property="username" destination="IwN-md-0nG" id="myt-Kc-rdI"/>
-                        <segue destination="Fwx-Mm-tso" kind="show" identifier="LoginSegueID" id="68A-n4-ggw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3416.8000000000002" y="-95.802098950524751"/>
+            <point key="canvasLocation" x="2434" y="-1271"/>
         </scene>
         <!--Осн. инфо-->
         <scene sceneID="cx6-4Y-t5g">
             <objects>
-                <viewController storyboardIdentifier="InfoViewID" id="hsD-jH-TtI" customClass="InfoViewController" customModule="urSteps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="infoViewID" id="hsD-jH-TtI" customClass="InfoViewController" customModule="urSteps" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="643-fb-vd0"/>
                         <viewControllerLayoutGuide type="bottom" id="jkw-gb-Tns"/>
@@ -241,13 +239,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LnX-3b-fpU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5444" y="-96.7016491754123"/>
+            <point key="canvasLocation" x="3841" y="-1272"/>
         </scene>
         <!--Аудиоитервью-->
         <scene sceneID="GVR-kn-oFb">
             <objects>
                 <collectionViewController storyboardIdentifier="recViewID" id="07n-xo-JTb" customClass="RecViewController" customModule="urSteps" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="5Gh-8Z-HSd">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="5Gh-8Z-HSd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -337,7 +335,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MbJ-cr-bG1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4505" y="700"/>
+            <point key="canvasLocation" x="3458" y="-2069"/>
         </scene>
         <!--Ещё-->
         <scene sceneID="sDc-OW-MFY">
@@ -366,7 +364,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SGv-Id-sxj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3364" y="699"/>
+            <point key="canvasLocation" x="2433" y="-2069"/>
         </scene>
         <!--Доп. инфо-->
         <scene sceneID="I50-Gd-dcT">
@@ -472,7 +470,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h4f-dp-zXc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5444" y="-821.73913043478262"/>
+            <point key="canvasLocation" x="4652" y="-1930"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ykN-se-IH3">
@@ -480,11 +478,11 @@
                 <tabBarController storyboardIdentifier="tabBarID" automaticallyAdjustsScrollViewInsets="NO" id="Fwx-Mm-tso" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="YwA-y6-AVp">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="hsD-jH-TtI" kind="show" id="thH-H5-2KS"/>
                         <segue destination="hsD-jH-TtI" kind="relationship" relationship="viewControllers" id="yLl-kP-YQ7"/>
                         <segue destination="FZU-es-0GV" kind="relationship" relationship="viewControllers" id="oJ9-Qr-bEB"/>
                         <segue destination="07n-xo-JTb" kind="relationship" relationship="viewControllers" id="5dv-He-dbK"/>
@@ -493,10 +491,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yaG-Ye-sAY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4504.8000000000002" y="-96.7016491754123"/>
+            <point key="canvasLocation" x="4118" y="-2949"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="yLl-kP-YQ7"/>
-    </inferredMetricsTieBreakers>
 </document>
