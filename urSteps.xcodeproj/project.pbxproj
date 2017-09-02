@@ -17,10 +17,7 @@
 		134266E51F3D20FD00018BCB /* RecViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134266E41F3D20FD00018BCB /* RecViewController.swift */; };
 		137144321F3E637E0050A25A /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137144311F3E637E0050A25A /* CollectionViewCell.swift */; };
 		13804B011F58645C005D2E10 /* AddContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13804B001F58645C005D2E10 /* AddContentViewController.swift */; };
-		13804B031F58CA60005D2E10 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13804B021F58CA60005D2E10 /* UserData.swift */; };
-		1396CD111F5948950017F019 /* workers.json in Resources */ = {isa = PBXBuildFile; fileRef = 1396CD101F5948950017F019 /* workers.json */; };
-		13C91F5F1F5B210400CB613C /* work3.json in Resources */ = {isa = PBXBuildFile; fileRef = 13C91F5E1F5B210400CB613C /* work3.json */; };
-		13C91F611F5B21F200CB613C /* 1txt.json in Resources */ = {isa = PBXBuildFile; fileRef = 13C91F601F5B21F200CB613C /* 1txt.json */; };
+		13E26C291F5B364B00E8D50D /* testData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E26C281F5B364B00E8D50D /* testData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,10 +33,7 @@
 		134266E41F3D20FD00018BCB /* RecViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecViewController.swift; sourceTree = "<group>"; };
 		137144311F3E637E0050A25A /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		13804B001F58645C005D2E10 /* AddContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContentViewController.swift; sourceTree = "<group>"; };
-		13804B021F58CA60005D2E10 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
-		1396CD101F5948950017F019 /* workers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = workers.json; sourceTree = "<group>"; };
-		13C91F5E1F5B210400CB613C /* work3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = work3.json; path = urSteps/work3.json; sourceTree = "<group>"; };
-		13C91F601F5B21F200CB613C /* 1txt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = 1txt.json; path = urSteps/1txt.json; sourceTree = "<group>"; };
+		13E26C281F5B364B00E8D50D /* testData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +50,6 @@
 		134266C31F3D203800018BCB = {
 			isa = PBXGroup;
 			children = (
-				13C91F601F5B21F200CB613C /* 1txt.json */,
-				13C91F5E1F5B210400CB613C /* work3.json */,
-				1396CD101F5948950017F019 /* workers.json */,
 				134266CE1F3D203900018BCB /* urSteps */,
 				134266CD1F3D203900018BCB /* Products */,
 			);
@@ -80,7 +71,7 @@
 				134266E41F3D20FD00018BCB /* RecViewController.swift */,
 				137144311F3E637E0050A25A /* CollectionViewCell.swift */,
 				134266D31F3D203900018BCB /* Main.storyboard */,
-				13804B021F58CA60005D2E10 /* UserData.swift */,
+				13E26C281F5B364B00E8D50D /* testData.swift */,
 				13804B001F58645C005D2E10 /* AddContentViewController.swift */,
 				132560F91F5851E300ABA71E /* InfoViewController.swift */,
 				134266D91F3D203900018BCB /* Assets.xcassets */,
@@ -152,11 +143,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				134266DD1F3D203900018BCB /* LaunchScreen.storyboard in Resources */,
-				1396CD111F5948950017F019 /* workers.json in Resources */,
 				134266DA1F3D203900018BCB /* Assets.xcassets in Resources */,
 				134266D51F3D203900018BCB /* Main.storyboard in Resources */,
-				13C91F611F5B21F200CB613C /* 1txt.json in Resources */,
-				13C91F5F1F5B210400CB613C /* work3.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,12 +157,12 @@
 			files = (
 				137144321F3E637E0050A25A /* CollectionViewCell.swift in Sources */,
 				13804B011F58645C005D2E10 /* AddContentViewController.swift in Sources */,
-				13804B031F58CA60005D2E10 /* UserData.swift in Sources */,
 				134266D21F3D203900018BCB /* LoginViewController.swift in Sources */,
 				134266D81F3D203900018BCB /* urSteps.xcdatamodeld in Sources */,
 				132560FA1F5851E300ABA71E /* InfoViewController.swift in Sources */,
 				134266D01F3D203900018BCB /* AppDelegate.swift in Sources */,
 				134266E51F3D20FD00018BCB /* RecViewController.swift in Sources */,
+				13E26C291F5B364B00E8D50D /* testData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

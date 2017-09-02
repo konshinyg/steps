@@ -242,6 +242,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Осн. инфо" id="gUt-rc-s21"/>
                     <connections>
+                        <outlet property="companyLabel" destination="Bgs-fm-knU" id="62Z-LM-eB4"/>
+                        <outlet property="nameLabel" destination="RDY-4g-zZf" id="ESU-v6-D8Z"/>
+                        <outlet property="phoneLabel" destination="gzx-oi-121" id="lwC-mr-gQL"/>
+                        <outlet property="surnameLabel" destination="goa-U2-DuM" id="wHF-9x-gnO"/>
                         <outlet property="texter" destination="alb-nG-SqT" id="RPU-rM-j5L"/>
                     </connections>
                 </viewController>
