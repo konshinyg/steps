@@ -9,13 +9,35 @@
 import UIKit
 import CoreData
 
+var centerContainer: MMDrawerController?
+var logController: UIViewController?
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        let loginStoryBoard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
+        logController = loginStoryBoard.instantiateViewController(withIdentifier: "loginViewID") as! LoginViewController
+        
+/*        let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let centerViewController = mainStoryBoard.instantiateViewController(withIdentifier: "infoViewID") as! InfoViewController
+        
+        let leftSideViewController = mainStoryBoard.instantiateViewController(withIdentifier: "LeftSideViewController") as! LeftSideViewController
+        
+        let leftSideNav = UINavigationController(rootViewController: leftSideViewController)
+        let centerNav = UINavigationController(rootViewController: centerViewController)
+        
+        centerContainer = MMDrawerController(center: centerNav, leftDrawerViewController: leftSideNav)
+        
+        centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningCenterView
+        centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.panningCenterView
+        */
+        window!.rootViewController = logController
+        //window!.rootViewController = centerContainer
+        window!.makeKeyAndVisible()
         // Override point for customization after application launch.
         return true
     }

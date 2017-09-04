@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		130665591F5DF8EB004D54B9 /* MMDrawerBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 130665511F5DF8EB004D54B9 /* MMDrawerBarButtonItem.m */; };
+		1306655A1F5DF8EB004D54B9 /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 130665531F5DF8EB004D54B9 /* MMDrawerController.m */; };
+		1306655B1F5DF8EB004D54B9 /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = 130665561F5DF8EB004D54B9 /* MMDrawerVisualState.m */; };
+		1306655C1F5DF8EB004D54B9 /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 130665581F5DF8EB004D54B9 /* UIViewController+MMDrawerController.m */; };
+		1306655E1F5E080D004D54B9 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1306655D1F5E080D004D54B9 /* Login.storyboard */; };
 		132560FA1F5851E300ABA71E /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132560F91F5851E300ABA71E /* InfoViewController.swift */; };
 		134266D01F3D203900018BCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134266CF1F3D203900018BCB /* AppDelegate.swift */; };
 		134266D21F3D203900018BCB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134266D11F3D203900018BCB /* LoginViewController.swift */; };
@@ -18,9 +23,23 @@
 		137144321F3E637E0050A25A /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137144311F3E637E0050A25A /* CollectionViewCell.swift */; };
 		13804B011F58645C005D2E10 /* AddContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13804B001F58645C005D2E10 /* AddContentViewController.swift */; };
 		13E26C291F5B364B00E8D50D /* testData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E26C281F5B364B00E8D50D /* testData.swift */; };
+		13FF6F751F5DEDD9000D0C99 /* LeftSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF6F741F5DEDD9000D0C99 /* LeftSideViewController.swift */; };
+		13FF6F771F5DEE1A000D0C99 /* Avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 13FF6F761F5DEE1A000D0C99 /* Avatar.png */; };
+		13FF6F7A1F5DEE58000D0C99 /* menuCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF6F791F5DEE58000D0C99 /* menuCustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1306654F1F5DF8EA004D54B9 /* urSteps-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "urSteps-Bridging-Header.h"; sourceTree = "<group>"; };
+		130665501F5DF8EB004D54B9 /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
+		130665511F5DF8EB004D54B9 /* MMDrawerBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerBarButtonItem.m; sourceTree = "<group>"; };
+		130665521F5DF8EB004D54B9 /* MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerController.h; sourceTree = "<group>"; };
+		130665531F5DF8EB004D54B9 /* MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerController.m; sourceTree = "<group>"; };
+		130665541F5DF8EB004D54B9 /* MMDrawerController+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController+Subclass.h"; sourceTree = "<group>"; };
+		130665551F5DF8EB004D54B9 /* MMDrawerVisualState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerVisualState.h; sourceTree = "<group>"; };
+		130665561F5DF8EB004D54B9 /* MMDrawerVisualState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerVisualState.m; sourceTree = "<group>"; };
+		130665571F5DF8EB004D54B9 /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
+		130665581F5DF8EB004D54B9 /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
+		1306655D1F5E080D004D54B9 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		132560F91F5851E300ABA71E /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		134266CC1F3D203900018BCB /* urSteps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = urSteps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		134266CF1F3D203900018BCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +53,9 @@
 		137144311F3E637E0050A25A /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		13804B001F58645C005D2E10 /* AddContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContentViewController.swift; sourceTree = "<group>"; };
 		13E26C281F5B364B00E8D50D /* testData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testData.swift; sourceTree = "<group>"; };
+		13FF6F741F5DEDD9000D0C99 /* LeftSideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSideViewController.swift; sourceTree = "<group>"; };
+		13FF6F761F5DEE1A000D0C99 /* Avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Avatar.png; sourceTree = "<group>"; };
+		13FF6F791F5DEE58000D0C99 /* menuCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuCustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +69,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1306654E1F5DF8D4004D54B9 /* sideMenuController */ = {
+			isa = PBXGroup;
+			children = (
+				130665501F5DF8EB004D54B9 /* MMDrawerBarButtonItem.h */,
+				130665511F5DF8EB004D54B9 /* MMDrawerBarButtonItem.m */,
+				130665521F5DF8EB004D54B9 /* MMDrawerController.h */,
+				130665531F5DF8EB004D54B9 /* MMDrawerController.m */,
+				130665541F5DF8EB004D54B9 /* MMDrawerController+Subclass.h */,
+				130665551F5DF8EB004D54B9 /* MMDrawerVisualState.h */,
+				130665561F5DF8EB004D54B9 /* MMDrawerVisualState.m */,
+				130665571F5DF8EB004D54B9 /* UIViewController+MMDrawerController.h */,
+				130665581F5DF8EB004D54B9 /* UIViewController+MMDrawerController.m */,
+				1306654F1F5DF8EA004D54B9 /* urSteps-Bridging-Header.h */,
+			);
+			name = sideMenuController;
+			sourceTree = "<group>";
+		};
+		1306655F1F5E086C004D54B9 /* LoginScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1306655D1F5E080D004D54B9 /* Login.storyboard */,
+				134266D11F3D203900018BCB /* LoginViewController.swift */,
+			);
+			name = LoginScreen;
+			sourceTree = "<group>";
+		};
 		134266C31F3D203800018BCB = {
 			isa = PBXGroup;
 			children = (
@@ -66,11 +114,14 @@
 		134266CE1F3D203900018BCB /* urSteps */ = {
 			isa = PBXGroup;
 			children = (
+				1306654E1F5DF8D4004D54B9 /* sideMenuController */,
 				134266CF1F3D203900018BCB /* AppDelegate.swift */,
-				134266D11F3D203900018BCB /* LoginViewController.swift */,
+				1306655F1F5E086C004D54B9 /* LoginScreen */,
 				134266E41F3D20FD00018BCB /* RecViewController.swift */,
 				137144311F3E637E0050A25A /* CollectionViewCell.swift */,
+				13FF6F741F5DEDD9000D0C99 /* LeftSideViewController.swift */,
 				134266D31F3D203900018BCB /* Main.storyboard */,
+				13FF6F791F5DEE58000D0C99 /* menuCustomTableViewCell.swift */,
 				13E26C281F5B364B00E8D50D /* testData.swift */,
 				13804B001F58645C005D2E10 /* AddContentViewController.swift */,
 				132560F91F5851E300ABA71E /* InfoViewController.swift */,
@@ -78,8 +129,17 @@
 				134266DB1F3D203900018BCB /* LaunchScreen.storyboard */,
 				134266DE1F3D203900018BCB /* Info.plist */,
 				134266D61F3D203900018BCB /* urSteps.xcdatamodeld */,
+				13FF6F781F5DEE24000D0C99 /* images */,
 			);
 			path = urSteps;
+			sourceTree = "<group>";
+		};
+		13FF6F781F5DEE24000D0C99 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				13FF6F761F5DEE1A000D0C99 /* Avatar.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -115,6 +175,7 @@
 					134266CB1F3D203800018BCB = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 2962L856EU;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -142,8 +203,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13FF6F771F5DEE1A000D0C99 /* Avatar.png in Resources */,
 				134266DD1F3D203900018BCB /* LaunchScreen.storyboard in Resources */,
 				134266DA1F3D203900018BCB /* Assets.xcassets in Resources */,
+				1306655E1F5E080D004D54B9 /* Login.storyboard in Resources */,
 				134266D51F3D203900018BCB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,12 +219,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				137144321F3E637E0050A25A /* CollectionViewCell.swift in Sources */,
+				1306655B1F5DF8EB004D54B9 /* MMDrawerVisualState.m in Sources */,
 				13804B011F58645C005D2E10 /* AddContentViewController.swift in Sources */,
 				134266D21F3D203900018BCB /* LoginViewController.swift in Sources */,
+				130665591F5DF8EB004D54B9 /* MMDrawerBarButtonItem.m in Sources */,
 				134266D81F3D203900018BCB /* urSteps.xcdatamodeld in Sources */,
 				132560FA1F5851E300ABA71E /* InfoViewController.swift in Sources */,
+				13FF6F7A1F5DEE58000D0C99 /* menuCustomTableViewCell.swift in Sources */,
 				134266D01F3D203900018BCB /* AppDelegate.swift in Sources */,
+				1306655C1F5DF8EB004D54B9 /* UIViewController+MMDrawerController.m in Sources */,
 				134266E51F3D20FD00018BCB /* RecViewController.swift in Sources */,
+				13FF6F751F5DEDD9000D0C99 /* LeftSideViewController.swift in Sources */,
+				1306655A1F5DF8EB004D54B9 /* MMDrawerController.m in Sources */,
 				13E26C291F5B364B00E8D50D /* testData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,11 +354,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 2962L856EU;
 				INFOPLIST_FILE = urSteps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.core.urSteps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "urSteps/urSteps-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -298,11 +370,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 2962L856EU;
 				INFOPLIST_FILE = urSteps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.core.urSteps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "urSteps/urSteps-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
