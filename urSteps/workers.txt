@@ -1,3 +1,5 @@
-{"usercount": 3,
+{
+"usercount": 3,
 "users": [
-{"id":01, "surname":"ѓрачевский", "name":"”едор", "fatherName":"Ђлександрович", "gender":"male", "jobSearchStatus":"active", "birthdayDate":"01.04.1985", "region":"Њосква", "phone":"+79879050431"}, {"id":02, "surname":"Љоньшин", "name":"ћджин", "fatherName":"”иолетович", "gender":"male", "jobSearchStatus":"active", "birthdayDate":"26.02.1984", "region":"‘анкт-Џетербург", "phone":"+79859280879"}, {"id":03, "surname":"Chi", "name":"Foo", "fatherName":"Man", "gender":"female", "jobSearchStatus":"non-active", "birthdayDate":"05.01.1967", "region":"MaanchGoo", "phone":"+79374536271"}]}
+{"id":01, "surname":"РіСЂР°С‡РµРІСЃРєРёР№", "name":"С„РµРґРѕСЂ", "fatherName":"Р°Р»РµРєСЃР°РЅРґСЂРѕРІРёС‡", "gender":"male", "jobSearchStatus":"active", "birthdayDate":"01.04.1985", "region":"РјРѕСЃРєРІР°", "phone":"+79879050431"}, {"id":02, "surname":"РєРѕРЅСЊС€РёРЅ", "name":"СЋРґР¶РёРЅ", "fatherName":"С„РёРѕР»РµС‚РѕРІРёС‡", "gender":"male", "jobSearchStatus":"active", "birthdayDate":"26.02.1984", "region":"СЃР°РЅРєС‚-РїРµС‚РµСЂР±СѓСЂРі", "phone":"+79859280879"}, {"id":03, "surname":"Chi", "name":"Foo", "fatherName":"Man", "gender":"female", "jobSearchStatus":"non-active", "birthdayDate":"05.01.1967", "region":"MaanchGoo", "phone":"+79374536271"}]
+}

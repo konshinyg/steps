@@ -3,32 +3,50 @@ import UIKit
 
 class InfoViewController: UIViewController {
     
+    @IBOutlet weak var nameLabel: UITextField!
+    @IBOutlet weak var surnameLabel: UITextField!
+    @IBOutlet weak var phoneLabel: UITextField!
+    @IBOutlet weak var companyLabel: UITextView!
     @IBOutlet weak var texter: UITextView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let url = getURL(token: LoginViewController.token)
+        giveData(urlString: url)
     }
     
-    func readFromFile() -> String {
-        var result = ""
-        
-        if let path = Bundle.main.path(forResource: "work3", ofType: "json") {
-            result = try! String(contentsOfFile: path, encoding: String.Encoding.windowsCP1251)
+    func getURL(token: String) -> String {
+        var urlString = "http://jsonplaceholder.typicode.com/users"
+        switch token {
+        case "aabc":
+            urlString.append("/1")
+            break
+        case "babc":
+            urlString.append("/2")
+            break
+        case "cabc":
+            urlString.append("/3")
+            break
+        default: break
         }
-        return result
+        return urlString
     }
-        @IBAction func parseButton(_ sender: UIButton) {
-//        let text: String = readFromFile()
-        let url = URL(string: "http://jsonplaceholder.typicode.com/users/1")
+    
+    func giveData(urlString: String) {
+        let url = URL(string: urlString)
         do {
             let urlConverted = try String(contentsOf: url!, encoding: .utf8)
-            let parseResult = parse(json: urlConverted)
-            print(parseResult!)
+            let parseToDict = parse(json: urlConverted)
+//            print(parseToDict!)
+            let data = testDataParse(dictionary: parseToDict!)
+            nameLabel.text = data.name
+            surnameLabel.text = data.username
+            phoneLabel.text = data.phone
+            companyLabel.text = data.companyArray.joined(separator: ",\n")
         } catch {}
-//        let sParse = secondParse(dictionary: parseResult!)
-//        print(sParse)
-            
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -47,23 +65,29 @@ class InfoViewController: UIViewController {
         }
     }
     
-    func secondParse(dictionary: [String : Any]) -> UserData {
-        
-        let data = UserData()
+    func testDataParse(dictionary: [String: Any]) -> testData {
+        let data = testData()
         if let id = dictionary["id"] as? Int {
             data.id = id
         }
-        data.name = dictionary["name"] as! String /*
-        data.surname = dictionary["surname"] as! String
-        data.fatherName = dictionary["fathername"] as! String
-        data.gender = dictionary["gender"] as! String
-        data.jobSearchStatus = dictionary["jobSearchStatus"] as! String
-        data.birthdayDate = dictionary["birthdayDate"] as! String
-        data.region = dictionary["region"] as! String
-        data.phone = dictionary["phone"] as! String */
+        data.username = dictionary["username"] as! String
+        data.name = dictionary["name"] as! String
+        data.email = dictionary["email"] as! String
+        data.phone = dictionary["phone"] as! String
+        data.addresArray = convertDictToArray(dictionary: dictionary["address"] as! [String : Any])
+        data.companyArray = convertDictToArray(dictionary: dictionary["company"] as! [String : Any])
         return data
     }
-
+    
+    func convertDictToArray(dictionary: [String: Any]) -> [String] {
+        var array = [String]()
+        for (_, v) in dictionary {
+            if v is String {
+                array.append(v as! String)
+            } else { }
+        }
+        return array
+    }
     /*
     // MARK: - Navigation
 
@@ -73,5 +97,4 @@ class InfoViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

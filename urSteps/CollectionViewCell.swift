@@ -11,31 +11,22 @@ import AVFoundation
 
 class CollectionViewCell: UICollectionViewCell, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     
-    var recorder: AVAudioRecorder!
-    
-    var player:AVAudioPlayer!
-    
     @IBOutlet weak var rec: UIButton!
-    
     @IBOutlet weak var play: UIButton!
-    
     @IBOutlet weak var stop: UIButton!
-    
     @IBOutlet weak var label: UILabel!
-    
     @IBOutlet weak var timerBar: UILabel!
-    
     @IBOutlet weak var delete: UIButton!
-    
     @IBOutlet weak var progressBar: UIProgressView!
     
+    var recorder: AVAudioRecorder!
+    var player:AVAudioPlayer!
     var meterTimer:Timer!
-    
     var soundFileURL:URL!
     
     func updateAudioMeter(_ timer:Timer) {
         if let recorder = self.recorder {
-            if recorder.isRecording || player.isPlaying {
+            if recorder.isRecording {
                 let min = Int(recorder.currentTime / 60)
                 let sec = Int(recorder.currentTime.truncatingRemainder(dividingBy: 60))
                 let s = String(format: "%02d:%02d", min, sec)
@@ -68,7 +59,6 @@ class CollectionViewCell: UICollectionViewCell, AVAudioRecorderDelegate, AVAudio
         if recorder != nil && recorder.isRecording {
             print("pausing")
             recorder.pause()
-            play.isEnabled = true
             stop.isEnabled = true
             rec.setTitle("Continue", for:.normal)
             
@@ -85,10 +75,10 @@ class CollectionViewCell: UICollectionViewCell, AVAudioRecorderDelegate, AVAudio
     @IBAction func playButton(_ sender: UIButton) {
         play.isEnabled = false
         stop.isEnabled = true
-        playplay()
+        playOn()
     }
     
-    func playplay() {
+    func playOn() {
         print("\(#function)")
         var url:URL?
         if self.recorder != nil {
@@ -105,15 +95,15 @@ class CollectionViewCell: UICollectionViewCell, AVAudioRecorderDelegate, AVAudio
             player.prepareToPlay()
             player.volume = 1.0
             player.play()
-            self.meterTimer = Timer.scheduledTimer(timeInterval: 0.1,
-                                                   target:self,
-                                                   selector:#selector(self.updateAudioMeter(_:)),
-                                                   userInfo:nil,
-                                                   repeats:true)
         } catch {
             self.player = nil
             print(error.localizedDescription)
         }
+        meterTimer = Timer.scheduledTimer(timeInterval: 0.1,
+                                               target:self,
+                                               selector:#selector(self.updateAudioMeter(_:)),
+                                               userInfo:nil,
+                                               repeats:true)
     }
     
     @IBAction func stop(_ sender: UIButton) {
@@ -123,7 +113,6 @@ class CollectionViewCell: UICollectionViewCell, AVAudioRecorderDelegate, AVAudio
         recorder?.stop()
         player?.stop()
         
-        meterTimer.invalidate()
         progressBar.progress = 0
         rec.setTitle("Record", for: .normal)
         let session = AVAudioSession.sharedInstance()
@@ -131,7 +120,7 @@ class CollectionViewCell: UICollectionViewCell, AVAudioRecorderDelegate, AVAudio
             try session.setActive(false)
             play.isEnabled = true
             delete.isEnabled = true
-            rec.isEnabled = true
+            rec.isEnabled = false
             stop.isEnabled = false
         } catch {
             print("could not make session inactive")
@@ -151,6 +140,10 @@ class CollectionViewCell: UICollectionViewCell, AVAudioRecorderDelegate, AVAudio
             print("error deleting recording")
         }
         progressBar.progress = 0
+        rec.isEnabled = true
+        delete.isEnabled = false
+        play.isEnabled = false
+        stop.isEnabled = false
     }
     
     func recordWithPermission(_ setup:Bool) {

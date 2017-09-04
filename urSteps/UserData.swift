@@ -2,7 +2,7 @@
 import UIKit
 
 class UserData {
-    var id = ""
+    var id = 0
     var name = ""
     var surname = ""
     var fatherName = ""
