@@ -1,3 +1,4 @@
+// Главное окна профиля
 
 import UIKit
 
@@ -7,7 +8,6 @@ class InfoViewController: UIViewController {
     @IBOutlet weak var surnameLabel: UITextField!
     @IBOutlet weak var phoneLabel: UITextField!
     @IBOutlet weak var companyLabel: UITextView!
-    @IBOutlet weak var texter: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,13 +88,11 @@ class InfoViewController: UIViewController {
         }
         return array
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func menuButtonTapped(_ sender: Any) {
+        let leftWidth = MMDrawerController.setMaximumLeftDrawerWidth(centerContainer!)
+        leftWidth(320, true, nil)
+        
+        centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
     }
-    */
 }

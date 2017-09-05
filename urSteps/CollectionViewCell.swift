@@ -1,10 +1,4 @@
-//
-//  CollectionViewCell.swift
-//  testCollections
-//
-//  Created by Core on 11.08.17.
-//  Copyright © 2017 Cornelius. All rights reserved.
-//
+// контроллер ячейки из таблицы HR-вопросов
 
 import UIKit
 import AVFoundation

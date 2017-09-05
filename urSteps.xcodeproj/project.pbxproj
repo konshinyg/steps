@@ -21,7 +21,7 @@
 		134266DD1F3D203900018BCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 134266DB1F3D203900018BCB /* LaunchScreen.storyboard */; };
 		134266E51F3D20FD00018BCB /* RecViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134266E41F3D20FD00018BCB /* RecViewController.swift */; };
 		137144321F3E637E0050A25A /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137144311F3E637E0050A25A /* CollectionViewCell.swift */; };
-		13804B011F58645C005D2E10 /* AddContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13804B001F58645C005D2E10 /* AddContentViewController.swift */; };
+		13804B011F58645C005D2E10 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13804B001F58645C005D2E10 /* SettingsViewController.swift */; };
 		13E26C291F5B364B00E8D50D /* testData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E26C281F5B364B00E8D50D /* testData.swift */; };
 		13FF6F751F5DEDD9000D0C99 /* LeftSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF6F741F5DEDD9000D0C99 /* LeftSideViewController.swift */; };
 		13FF6F771F5DEE1A000D0C99 /* Avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 13FF6F761F5DEE1A000D0C99 /* Avatar.png */; };
@@ -51,7 +51,7 @@
 		134266DE1F3D203900018BCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		134266E41F3D20FD00018BCB /* RecViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecViewController.swift; sourceTree = "<group>"; };
 		137144311F3E637E0050A25A /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		13804B001F58645C005D2E10 /* AddContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContentViewController.swift; sourceTree = "<group>"; };
+		13804B001F58645C005D2E10 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		13E26C281F5B364B00E8D50D /* testData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testData.swift; sourceTree = "<group>"; };
 		13FF6F741F5DEDD9000D0C99 /* LeftSideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSideViewController.swift; sourceTree = "<group>"; };
 		13FF6F761F5DEE1A000D0C99 /* Avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Avatar.png; sourceTree = "<group>"; };
@@ -95,6 +95,21 @@
 			name = LoginScreen;
 			sourceTree = "<group>";
 		};
+		130665601F5E1DF5004D54B9 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				134266E41F3D20FD00018BCB /* RecViewController.swift */,
+				137144311F3E637E0050A25A /* CollectionViewCell.swift */,
+				13FF6F741F5DEDD9000D0C99 /* LeftSideViewController.swift */,
+				134266D31F3D203900018BCB /* Main.storyboard */,
+				13FF6F791F5DEE58000D0C99 /* menuCustomTableViewCell.swift */,
+				13E26C281F5B364B00E8D50D /* testData.swift */,
+				13804B001F58645C005D2E10 /* SettingsViewController.swift */,
+				132560F91F5851E300ABA71E /* InfoViewController.swift */,
+			);
+			name = MainScreen;
+			sourceTree = "<group>";
+		};
 		134266C31F3D203800018BCB = {
 			isa = PBXGroup;
 			children = (
@@ -117,14 +132,7 @@
 				1306654E1F5DF8D4004D54B9 /* sideMenuController */,
 				134266CF1F3D203900018BCB /* AppDelegate.swift */,
 				1306655F1F5E086C004D54B9 /* LoginScreen */,
-				134266E41F3D20FD00018BCB /* RecViewController.swift */,
-				137144311F3E637E0050A25A /* CollectionViewCell.swift */,
-				13FF6F741F5DEDD9000D0C99 /* LeftSideViewController.swift */,
-				134266D31F3D203900018BCB /* Main.storyboard */,
-				13FF6F791F5DEE58000D0C99 /* menuCustomTableViewCell.swift */,
-				13E26C281F5B364B00E8D50D /* testData.swift */,
-				13804B001F58645C005D2E10 /* AddContentViewController.swift */,
-				132560F91F5851E300ABA71E /* InfoViewController.swift */,
+				130665601F5E1DF5004D54B9 /* MainScreen */,
 				134266D91F3D203900018BCB /* Assets.xcassets */,
 				134266DB1F3D203900018BCB /* LaunchScreen.storyboard */,
 				134266DE1F3D203900018BCB /* Info.plist */,
@@ -220,7 +228,7 @@
 			files = (
 				137144321F3E637E0050A25A /* CollectionViewCell.swift in Sources */,
 				1306655B1F5DF8EB004D54B9 /* MMDrawerVisualState.m in Sources */,
-				13804B011F58645C005D2E10 /* AddContentViewController.swift in Sources */,
+				13804B011F58645C005D2E10 /* SettingsViewController.swift in Sources */,
 				134266D21F3D203900018BCB /* LoginViewController.swift in Sources */,
 				130665591F5DF8EB004D54B9 /* MMDrawerBarButtonItem.m in Sources */,
 				134266D81F3D203900018BCB /* urSteps.xcdatamodeld in Sources */,

@@ -1,10 +1,4 @@
-//
-//  RecViewController.swift
-//  urSteps
-//
-//  Created by Core on 11.08.17.
-//  Copyright © 2017 Cornelius. All rights reserved.
-//
+// окно HR-вопросов
 
 import UIKit
 
