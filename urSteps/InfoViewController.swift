@@ -94,5 +94,6 @@ class InfoViewController: UIViewController {
         leftWidth(320, true, nil)
         
         centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
+        centerContainer!.toggle(MMDrawerSide.right, animated: true, completion: nil)
     }
 }
