@@ -33,45 +33,32 @@ class LeftSideViewController: UIViewController, UITableViewDelegate, UITableView
         switch menuItems[indexPath.row] {
 
         case "Профиль":
-            let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let centerViewController = mainStoryBoard.instantiateViewController(withIdentifier: "infoViewID") as! InfoViewController
-            let leftSideViewController = mainStoryBoard.instantiateViewController(withIdentifier: "LeftSideViewController") as! LeftSideViewController
-            let leftSideNav = UINavigationController(rootViewController: leftSideViewController)
-            let centerNav = UINavigationController(rootViewController: centerViewController)
-            
-            centerContainer = MMDrawerController(center: centerNav, leftDrawerViewController: leftSideNav)
-            centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningCenterView
-            centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.panningCenterView
-            self.present(centerContainer!, animated: true, completion: nil)
+            switchTo(controllerIdentifier: "infoViewID", storyBoardName: "Main")
             break
             
         case "HR-вопросы":
-            let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let centerViewController = mainStoryBoard.instantiateViewController(withIdentifier: "recViewID") as! RecViewController
-            let leftSideViewController = mainStoryBoard.instantiateViewController(withIdentifier: "LeftSideViewController") as! LeftSideViewController
-            let leftSideNav = UINavigationController(rootViewController: leftSideViewController)
-            let centerNav = UINavigationController(rootViewController: centerViewController)
-            
-            centerContainer = MMDrawerController(center: centerNav, leftDrawerViewController: leftSideNav)
-            centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningCenterView
-            centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.panningCenterView
-            self.present(centerContainer!, animated: true, completion: nil)
+            switchTo(controllerIdentifier: "recViewID", storyBoardName: "Main")
             break
             
         case "Настройки":
-            let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let centerViewController = mainStoryBoard.instantiateViewController(withIdentifier: "settingsViewID") as! SettingsViewController
-            let leftSideViewController = mainStoryBoard.instantiateViewController(withIdentifier: "LeftSideViewController") as! LeftSideViewController
-            let leftSideNav = UINavigationController(rootViewController: leftSideViewController)
-            let centerNav = UINavigationController(rootViewController: centerViewController)
-            
-            centerContainer = MMDrawerController(center: centerNav, leftDrawerViewController: leftSideNav)
-            centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningCenterView
-            centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.panningCenterView
-            self.present(centerContainer!, animated: true, completion: nil)
+            switchTo(controllerIdentifier: "settingsViewID", storyBoardName: "Main")
             break
             
         default: break
         }
     }
+    
+    func switchTo(controllerIdentifier: String, storyBoardName: String) {
+        let mainStoryBoard: UIStoryboard = UIStoryboard(name: storyBoardName, bundle: nil)
+        let centerViewController = mainStoryBoard.instantiateViewController(withIdentifier: controllerIdentifier)
+        let leftSideViewController = mainStoryBoard.instantiateViewController(withIdentifier: "LeftSideViewController") as! LeftSideViewController
+        let leftSideNav = UINavigationController(rootViewController: leftSideViewController)
+        let centerNav = UINavigationController(rootViewController: centerViewController)
+        
+        centerContainer = MMDrawerController(center: centerNav, leftDrawerViewController: leftSideNav)
+        centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningCenterView
+        centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.panningCenterView
+        self.present(centerContainer!, animated: false, completion: nil)
+    }
+    
 }

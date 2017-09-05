@@ -60,11 +60,7 @@ class LoginViewController: UIViewController {
         
         centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningCenterView
         centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.panningCenterView
-        self.present(centerContainer!, animated: true, completion: nil)
-        
-/*        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc: InfoViewController = storyboard.instantiateViewController(withIdentifier: "infoViewID") as! InfoViewController
-        self.present(vc, animated: true, completion: nil) */
+        self.present(centerContainer!, animated: false, completion: nil)
     }
 }
 

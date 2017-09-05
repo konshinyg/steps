@@ -18,7 +18,7 @@ class SettingsViewController: UIViewController {
     @IBAction func exitUserButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Login", bundle: nil)
         let vc: LoginViewController = storyboard.instantiateViewController(withIdentifier: "loginViewID") as! LoginViewController
-        self.present(vc, animated: true, completion: nil)
+        self.present(vc, animated: false, completion: nil)
     }
 
     @IBAction func settingToMenuButton(_ sender: Any) {
