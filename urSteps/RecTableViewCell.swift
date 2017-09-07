@@ -12,8 +12,6 @@ import AVFoundation
 class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 
     @IBOutlet weak var rec: UIButton!
-    @IBOutlet weak var play: UIButton!
-    @IBOutlet weak var stop: UIButton!
     @IBOutlet weak var mainTextLabel: UILabel!
     @IBOutlet weak var addTextLabel: UILabel!
     @IBOutlet weak var timerBar: UILabel!
@@ -24,7 +22,13 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
     var player:AVAudioPlayer!
     var meterTimer:Timer!
     var soundFileURL:URL!
-
+    var IsOnPause = true
+    
+    let stopImageRed = UIImage(named: "stop-red_icon.png")
+    let recImage = UIImage(named: "rec_icon.png")
+    let playImage = UIImage(named: "play_icon.png")
+    let stopImageGray = UIImage(named: "stop-gray_icon.png")
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -44,52 +48,49 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
                 timerBar.text = s
                 progressBar.progressTintColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
                 progressBar.progress += 0.001
+            } else {
+                let min = Int(recorder.currentTime / 60)
+                let sec = Int(recorder.currentTime.truncatingRemainder(dividingBy: 60))
+                let s = String(format: "%02d:%02d", min, sec)
+                timerBar.text = s
+                progressBar.progressTintColor = UIColor.blue
+                progressBar.progress += 0.001
             }
+
         }
     }
     
     @IBAction func recButton(_ sender: UIButton) {
         
-        print("\(#function)")
-        
-        if player != nil {
-            print("stopping: recordButton was pressed during Playing")
-            player.stop()
-        }
-        
         if recorder == nil {
-            print("recording. recorder nil")
-            rec.setTitle("Pause", for:.normal)
-            play.isEnabled = false
-            stop.isEnabled = true
+            rec.setImage(stopImageRed, for: .normal)
             delete.isEnabled = false
             recordWithPermission(true)
             return
         }
         
-        if recorder != nil && recorder.isRecording {
-            print("pausing")
-            recorder.pause()
-            stop.isEnabled = true
-            rec.setTitle("Continue", for:.normal)
-            
-        } else {
-            print("recording")
-            rec.setTitle("Pause", for:.normal)
-            play.isEnabled = false
-            delete.isEnabled = false
-            stop.isEnabled = true
-            recordWithPermission(false)
+        if recorder.isRecording {
+            makeStop()
+            rec.setImage(playImage, for: .normal)
+            delete.isEnabled = true
+            return
+        }
+        
+        if recorder != nil && !recorder.isRecording {
+            delete.isEnabled = true
+            if IsOnPause {
+                makePlay()
+                rec.setImage(stopImageGray, for: .normal)
+            } else {
+                player.pause()
+                rec.setImage(playImage, for: .normal)
+            }
+            IsOnPause = !IsOnPause
+            return
         }
     }
     
-    @IBAction func playButton(_ sender: UIButton) {
-        play.isEnabled = false
-        stop.isEnabled = true
-        playOn()
-    }
-    
-    func playOn() {
+    func makePlay() {
         print("\(#function)")
         var url:URL?
         if self.recorder != nil {
@@ -110,17 +111,15 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
             self.player = nil
             print(error.localizedDescription)
         }
-        meterTimer = Timer.scheduledTimer(timeInterval: 0.1,
+        self.meterTimer = Timer.scheduledTimer(timeInterval: 0.1,
                                           target:self,
                                           selector:#selector(self.updateAudioMeter(_:)),
                                           userInfo:nil,
                                           repeats:true)
     }
     
-    @IBAction func stop(_ sender: UIButton) {
-        
+    func makeStop() {
         print("\(#function)")
-        
         recorder?.stop()
         player?.stop()
         
@@ -129,10 +128,7 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
         let session = AVAudioSession.sharedInstance()
         do {
             try session.setActive(false)
-            play.isEnabled = true
             delete.isEnabled = true
-            rec.isEnabled = false
-            stop.isEnabled = false
         } catch {
             print("could not make session inactive")
             print(error.localizedDescription)
@@ -141,6 +137,7 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
     
     @IBAction func deleteButton(_ sender: UIButton) {
         let url = self.soundFileURL!
+        makeStop()
         print("removing file at \(url.absoluteString)")
         let fileManager = FileManager.default
         
@@ -151,10 +148,9 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
             print("error deleting recording")
         }
         progressBar.progress = 0
-        rec.isEnabled = true
         delete.isEnabled = false
-        play.isEnabled = false
-        stop.isEnabled = false
+        rec.setImage(recImage, for: .normal)
+        recorder = nil
     }
     
     func recordWithPermission(_ setup:Bool) {

@@ -19,8 +19,8 @@ class HRViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,8 +36,11 @@ class HRViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         recCell.mainTextLabel.text = String(questions[indexPath.row])
         recCell.addTextLabel.text = String(explanations[indexPath.row])
         recCell.delete.isEnabled = false
-        recCell.play.isEnabled = false
-        recCell.stop.isEnabled = false
+        recCell.rec.isEnabled = true
+        
+        let recImage = UIImage(named: "rec_icon.png")
+        recCell.rec.setImage(recImage, for: .normal)
+        
         return recCell
     }
     

@@ -463,38 +463,18 @@
                                                     <rect key="frame" x="18" y="110" width="325" height="2"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </progressView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zuh-l9-vnw">
-                                                    <rect key="frame" x="18" y="78" width="32" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <state key="normal" title="Rec"/>
-                                                    <connections>
-                                                        <action selector="recButton:" destination="RRh-b1-TXx" eventType="touchUpInside" id="b4O-jb-peq"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5c-dD-2f1">
-                                                    <rect key="frame" x="77" y="78" width="32" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <state key="normal" title="Play"/>
-                                                    <connections>
-                                                        <action selector="playButton:" destination="RRh-b1-TXx" eventType="touchUpInside" id="Bd7-bE-xYe"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nHb-uM-14u">
-                                                    <rect key="frame" x="117" y="78" width="32" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <state key="normal" title="Stop"/>
-                                                    <connections>
-                                                        <action selector="stop:" destination="RRh-b1-TXx" eventType="touchUpInside" id="ttM-cR-MKT"/>
-                                                    </connections>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClI-3h-FqK">
                                                     <rect key="frame" x="307" y="83" width="36" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Пояснения и комментарии к основному тексту" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2a-qR-ffH">
+                                                    <rect key="frame" x="18" y="26" width="320" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8M-5z-NPE">
@@ -506,13 +486,14 @@
                                                         <action selector="deleteButton:" destination="RRh-b1-TXx" eventType="touchUpInside" id="LPA-si-WZD"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Пояснения и комментарии к основному тексту" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2a-qR-ffH">
-                                                    <rect key="frame" x="18" y="26" width="320" height="50"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zuh-l9-vnw">
+                                                    <rect key="frame" x="18" y="86" width="16" height="16"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <state key="normal" title="Rec" image="rec_icon.png"/>
+                                                    <connections>
+                                                        <action selector="recButton:" destination="RRh-b1-TXx" eventType="touchUpInside" id="b4O-jb-peq"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                         </tableViewCellContentView>
@@ -520,10 +501,8 @@
                                             <outlet property="addTextLabel" destination="u2a-qR-ffH" id="ILc-rW-0fo"/>
                                             <outlet property="delete" destination="Q8M-5z-NPE" id="rq2-qB-XtN"/>
                                             <outlet property="mainTextLabel" destination="tlS-3e-21m" id="EKJ-Nw-CcR"/>
-                                            <outlet property="play" destination="q5c-dD-2f1" id="A2i-oH-pmv"/>
                                             <outlet property="progressBar" destination="iv7-C6-DgF" id="Of1-DF-PZp"/>
                                             <outlet property="rec" destination="zuh-l9-vnw" id="CaC-ej-sR3"/>
-                                            <outlet property="stop" destination="nHb-uM-14u" id="v25-YF-m5T"/>
                                             <outlet property="timerBar" destination="ClI-3h-FqK" id="BI1-rP-pAo"/>
                                         </connections>
                                     </tableViewCell>
@@ -562,6 +541,7 @@
     </scenes>
     <resources>
         <image name="Avatar.png" width="32" height="33"/>
+        <image name="rec_icon.png" width="84" height="88"/>
         <image name="settings_icon_24.png" width="24" height="24"/>
         <image name="sound_icon_24.png" width="24" height="24"/>
         <image name="user_icon_24.png" width="24" height="24"/>
