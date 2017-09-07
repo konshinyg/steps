@@ -50,15 +50,8 @@ class LeftSideViewController: UIViewController, UITableViewDelegate, UITableView
     
     func switchTo(controllerIdentifier: String, storyBoardName: String) {
         let mainStoryBoard: UIStoryboard = UIStoryboard(name: storyBoardName, bundle: nil)
-        let centerViewController = mainStoryBoard.instantiateViewController(withIdentifier: controllerIdentifier)
-        let leftSideViewController = mainStoryBoard.instantiateViewController(withIdentifier: "LeftSideViewController") as! LeftSideViewController
-        let leftSideNav = UINavigationController(rootViewController: leftSideViewController)
-        let centerNav = UINavigationController(rootViewController: centerViewController)
-        
-        centerContainer = MMDrawerController(center: centerNav, leftDrawerViewController: leftSideNav)
-        centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningCenterView
-        centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.panningCenterView
-        self.present(centerContainer!, animated: false, completion: nil)
+        let vc = mainStoryBoard.instantiateViewController(withIdentifier: controllerIdentifier)
+        self.present(vc, animated: true, completion: nil)
     }
     
 }

@@ -18,13 +18,6 @@ class SettingsViewController: UIViewController {
     @IBAction func exitUserButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Login", bundle: nil)
         let vc: LoginViewController = storyboard.instantiateViewController(withIdentifier: "loginViewID") as! LoginViewController
-        present(vc, animated: false, completion: nil)
-    }
-
-    @IBAction func settingToMenuButton(_ sender: Any) {
-        let leftWidth = MMDrawerController.setMaximumLeftDrawerWidth(centerContainer!)
-        leftWidth(320, true, nil)
-        
-        centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
+        present(vc, animated: true, completion: nil)
     }
 }

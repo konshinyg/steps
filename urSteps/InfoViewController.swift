@@ -87,13 +87,5 @@ class InfoViewController: UIViewController {
             } else { }
         }
         return array
-    }
-    
-    @IBAction func menuButtonTapped(_ sender: Any) {
-        let leftWidth = MMDrawerController.setMaximumLeftDrawerWidth(centerContainer!)
-        leftWidth(320, true, nil)
-        
-        centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
-        centerContainer!.toggle(MMDrawerSide.right, animated: true, completion: nil)
-    }
+    }    
 }

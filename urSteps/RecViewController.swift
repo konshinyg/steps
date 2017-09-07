@@ -26,10 +26,4 @@ class RecViewController: UICollectionViewController {
         cell.stop.isEnabled = false
         return cell
     }
-    @IBAction func HRToMenuButton(_ sender: Any) {
-        let leftWidth = MMDrawerController.setMaximumLeftDrawerWidth(centerContainer!)
-        leftWidth(320, true, nil)
-        
-        centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
-    }
 }

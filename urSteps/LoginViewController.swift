@@ -49,18 +49,8 @@ class LoginViewController: UIViewController {
     
     func loginAccess() {
         let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let centerViewController = mainStoryBoard.instantiateViewController(withIdentifier: "infoViewID") as! InfoViewController
-        
-        let leftSideViewController = mainStoryBoard.instantiateViewController(withIdentifier: "LeftSideViewController") as! LeftSideViewController
-        
-        let leftSideNav = UINavigationController(rootViewController: leftSideViewController)
-        let centerNav = UINavigationController(rootViewController: centerViewController)
-        
-        centerContainer = MMDrawerController(center: centerNav, leftDrawerViewController: leftSideNav)
-        
-        centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningCenterView
-        centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.panningCenterView
-        self.present(centerContainer!, animated: false, completion: nil)
+        let vc = mainStoryBoard.instantiateViewController(withIdentifier: "tabBarID") as! UITabBarController
+        self.present(vc, animated: true, completion: nil)
     }
 }
 

@@ -9,7 +9,6 @@
 import UIKit
 import CoreData
 
-var centerContainer: MMDrawerController?
 var logController: UIViewController?
 
 @UIApplicationMain
