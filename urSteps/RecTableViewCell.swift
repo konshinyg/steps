@@ -15,6 +15,7 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
     @IBOutlet weak var play: UIButton!
     @IBOutlet weak var stop: UIButton!
     @IBOutlet weak var mainTextLabel: UILabel!
+    @IBOutlet weak var addTextLabel: UILabel!
     @IBOutlet weak var timerBar: UILabel!
     @IBOutlet weak var delete: UIButton!
     @IBOutlet weak var progressBar: UIProgressView!
@@ -124,7 +125,7 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
         player?.stop()
         
         progressBar.progress = 0
-        rec.setTitle("Record", for: .normal)
+        rec.setTitle("Rec", for: .normal)
         let session = AVAudioSession.sharedInstance()
         do {
             try session.setActive(false)
