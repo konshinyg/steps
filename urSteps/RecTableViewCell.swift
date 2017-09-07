@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class RecTableViewCell: UITableViewCell,AVAudioRecorderDelegate, AVAudioPlayerDelegate {
+class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 
     @IBOutlet weak var rec: UIButton!
     @IBOutlet weak var play: UIButton!
