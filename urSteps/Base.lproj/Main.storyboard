@@ -359,7 +359,7 @@
                             <constraint firstItem="jkw-gb-Tns" firstAttribute="top" secondItem="gzx-oi-121" secondAttribute="bottom" constant="66" id="yPD-dz-ZXP"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Профиль" image="user_icon_24.png" id="pii-TO-gYD"/>
+                    <tabBarItem key="tabBarItem" title="Профиль" image="user_icon_24.png" selectedImage="user_icon_24.png" id="pii-TO-gYD"/>
                     <toolbarItems/>
                     <connections>
                         <outlet property="companyLabel" destination="CzD-QO-WIp" id="c25-Mq-ahi"/>
@@ -385,30 +385,115 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ZY-Um-1Bg">
-                                <rect key="frame" x="101.5" y="106" width="172" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="GK7-Uj-TLT"/>
-                                </constraints>
+                                <rect key="frame" x="316" y="20" width="43" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="Выйти из учетной записи">
+                                <state key="normal" title="Выход">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="exitUserButton:" destination="BvY-n4-NI8" eventType="touchUpInside" id="luI-eS-QjM"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q4M-zZ-07y">
+                                <rect key="frame" x="16" y="57" width="343" height="170"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Грачевский Федор" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JW0-Im-j04">
+                                        <rect key="frame" x="91" y="8" width="180" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5N-dh-Tbg">
+                                        <rect key="frame" x="313" y="8" width="22" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Александрович" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQ7-Y6-jQ3">
+                                        <rect key="frame" x="91" y="31" width="180" height="16"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="FWV-XL-en4">
+                                        <rect key="frame" x="8" y="8" width="64" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pE-lA-HNh">
+                                        <rect key="frame" x="91" y="58" width="166" height="14"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Мужчина, родился 24.04.1985 (32 года)">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.27450980390000002" green="0.2784313725" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="8" name="PTSerif-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIz-F1-uQ7">
+                                        <rect key="frame" x="8" y="89" width="80" height="15"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Регион проживания">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.27450980390000002" green="0.2784313725" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="8" name="PTSerif-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osH-0n-cOc">
+                                        <rect key="frame" x="8" y="119" width="80" height="15"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Телефон">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.27450980390000002" green="0.2784313725" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="8" name="PTSerif-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVI-bq-G6P">
+                                        <rect key="frame" x="8" y="149" width="80" height="15"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Электронная почта">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.27450980390000002" green="0.2784313725" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="8" name="PingFangHK-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5ZY-Um-1Bg" firstAttribute="top" secondItem="GxS-jf-1D9" secondAttribute="bottom" constant="86" id="0Pm-Du-tt7"/>
-                            <constraint firstItem="5ZY-Um-1Bg" firstAttribute="centerX" secondItem="Gho-Tw-lig" secondAttribute="centerX" id="De2-3Z-lnb"/>
+                            <constraint firstItem="q4M-zZ-07y" firstAttribute="top" secondItem="5ZY-Um-1Bg" secondAttribute="bottom" constant="8" symbolic="YES" id="2eG-R9-xPh"/>
+                            <constraint firstItem="cMJ-NJ-pLG" firstAttribute="top" secondItem="q4M-zZ-07y" secondAttribute="bottom" constant="391" id="9C2-Vi-tr7"/>
+                            <constraint firstItem="q4M-zZ-07y" firstAttribute="trailing" secondItem="5ZY-Um-1Bg" secondAttribute="trailing" id="BVt-II-veD"/>
+                            <constraint firstItem="q4M-zZ-07y" firstAttribute="leading" secondItem="Gho-Tw-lig" secondAttribute="leadingMargin" id="cGs-FH-mtH"/>
+                            <constraint firstItem="5ZY-Um-1Bg" firstAttribute="top" secondItem="GxS-jf-1D9" secondAttribute="bottom" id="jEK-18-xJl"/>
+                            <constraint firstItem="5ZY-Um-1Bg" firstAttribute="trailing" secondItem="Gho-Tw-lig" secondAttribute="trailingMargin" id="jmo-NT-nU9"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Настройки" image="settings_icon_24.png" id="4Kp-kH-NCC"/>
+                    <tabBarItem key="tabBarItem" title="Настройки" image="settings_icon_24.png" selectedImage="settings_icon_24.png" id="4Kp-kH-NCC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rsa-sF-1ET" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4249" y="-1263"/>
+            <point key="canvasLocation" x="4248.8000000000002" y="-1263.4182908545729"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="80k-Dj-hSc">

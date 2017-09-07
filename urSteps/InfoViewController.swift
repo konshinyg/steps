@@ -37,7 +37,7 @@ class InfoViewController: UIViewController {
         do {
             let urlConverted = try String(contentsOf: url!, encoding: .utf8)
             let parseToDict = parse(json: urlConverted)
-            print(parseToDict!)
+//            print(parseToDict!)
             let data = testDataParse(dictionary: parseToDict!)
             nameLabel.text = data.name
             surnameLabel.text = data.username

@@ -22,8 +22,7 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
     let recImage = UIImage(named: "rec_icon.png")
     let playImage = UIImage(named: "play_icon.png")
     let stopImageGray = UIImage(named: "stop-gray_icon.png")
-    var recTime: TimeInterval = 0.0
-    
+    var recTime = 0.0
     override func awakeFromNib() { super.awakeFromNib() }
     override func setSelected(_ selected: Bool, animated: Bool) { super.setSelected(selected, animated: animated) }
 
@@ -42,7 +41,8 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
                 let sec = Int(player.currentTime.truncatingRemainder(dividingBy: 60))
                 let s = String(format: "%02d:%02d", min, sec)
                 playerTimerBar.text = s
-                progressBar.progress += 0.001
+                progressBar.progress = Float(player.currentTime/recTime)
+                print("\(progressBar.progress)")
                 progressBar.trackTintColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
                 progressBar.progressTintColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
                 if !player.isPlaying {
@@ -66,13 +66,14 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
         }
         
         if recorder.isRecording {
+            recTime = recorder.currentTime
             makeStop()
             rec.setImage(playImage, for: .normal)
             delete.isEnabled = true
             return
         }
         
-        if recorder != nil && !recorder.isRecording {
+        if !recorder.isRecording {
             delete.isEnabled = true
             if isPlayerStopped {
                 makePlay()
@@ -119,9 +120,6 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
         print("\(#function)")
         recorder?.stop()
         player?.stop()
-        
-        progressBar.progress = 0
-        rec.setTitle("Rec", for: .normal)
         let session = AVAudioSession.sharedInstance()
         do {
             try session.setActive(false)
@@ -130,6 +128,8 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
             print("could not make session inactive")
             print(error.localizedDescription)
         }
+        progressBar.progress = 0
+        rec.setTitle("Rec", for: .normal)
         playerTimerBar.text = "00:00"
         progressBar.trackTintColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     }
@@ -168,7 +168,7 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
                         self.setupRecorder()
                     }
                     self.recorder.record()
-                    self.meterTimer = Timer.scheduledTimer(timeInterval: 0.05,
+                    self.meterTimer = Timer.scheduledTimer(timeInterval: 0.01,
                                                            target:self,
                                                            selector:#selector(self.updateAudioMeter(_:)),
                                                            userInfo:nil,
@@ -203,7 +203,7 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
         
         let recordSettings:[String : Any] = [
             AVFormatIDKey:             kAudioFormatAppleLossless,
-            AVEncoderAudioQualityKey: AVAudioQuality.max.rawValue,
+            AVEncoderAudioQualityKey:  AVAudioQuality.max.rawValue,
             AVEncoderBitRateKey :      32000,
             AVNumberOfChannelsKey:     2,
             AVSampleRateKey :          44100.0
@@ -213,7 +213,7 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
         do {
             recorder = try AVAudioRecorder(url: soundFileURL, settings: recordSettings)
             recorder.delegate = self
-            recorder.isMeteringEnabled = true
+//            recorder.isMeteringEnabled = true
             recorder.prepareToRecord() // creates/overwrites the file at soundFileURL
         } catch {
             recorder = nil
