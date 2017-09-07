@@ -1,10 +1,4 @@
-//
-//  RecTableViewCell.swift
-//  urSteps
-//
-//  Created by Core on 07.09.17.
-//  Copyright © 2017 Cornelius. All rights reserved.
-//
+// Ячейка HR-вопросов
 
 import UIKit
 import AVFoundation
@@ -14,7 +8,8 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
     @IBOutlet weak var rec: UIButton!
     @IBOutlet weak var mainTextLabel: UILabel!
     @IBOutlet weak var addTextLabel: UILabel!
-    @IBOutlet weak var timerBar: UILabel!
+    @IBOutlet weak var recorderTimerBar: UILabel!
+    @IBOutlet weak var playerTimerBar: UILabel!
     @IBOutlet weak var delete: UIButton!
     @IBOutlet weak var progressBar: UIProgressView!
     
@@ -22,44 +17,45 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
     var player:AVAudioPlayer!
     var meterTimer:Timer!
     var soundFileURL:URL!
-    var IsOnPause = true
-    
+    var isPlayerStopped = true
     let stopImageRed = UIImage(named: "stop-red_icon.png")
     let recImage = UIImage(named: "rec_icon.png")
     let playImage = UIImage(named: "play_icon.png")
     let stopImageGray = UIImage(named: "stop-gray_icon.png")
+    var recTime: TimeInterval = 0.0
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    override func awakeFromNib() { super.awakeFromNib() }
+    override func setSelected(_ selected: Bool, animated: Bool) { super.setSelected(selected, animated: animated) }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
-    }
-
+// MARK: - Time Meter
     func updateAudioMeter(_ timer:Timer) {
         if let recorder = self.recorder {
             if recorder.isRecording {
                 let min = Int(recorder.currentTime / 60)
                 let sec = Int(recorder.currentTime.truncatingRemainder(dividingBy: 60))
                 let s = String(format: "%02d:%02d", min, sec)
-                timerBar.text = s
-                progressBar.progressTintColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-                progressBar.progress += 0.001
-            } else {
-                let min = Int(recorder.currentTime / 60)
-                let sec = Int(recorder.currentTime.truncatingRemainder(dividingBy: 60))
-                let s = String(format: "%02d:%02d", min, sec)
-                timerBar.text = s
-                progressBar.progressTintColor = UIColor.blue
-                progressBar.progress += 0.001
+                recorderTimerBar.text = s
+                progressBar.trackTintColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
             }
-
+            if !isPlayerStopped {
+                let min = Int(player.currentTime / 60)
+                let sec = Int(player.currentTime.truncatingRemainder(dividingBy: 60))
+                let s = String(format: "%02d:%02d", min, sec)
+                playerTimerBar.text = s
+                progressBar.progress += 0.001
+                progressBar.trackTintColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+                progressBar.progressTintColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+                if !player.isPlaying {
+                    makeStop()
+                    rec.setImage(playImage, for: .normal)
+                    isPlayerStopped = !isPlayerStopped
+                    delete.isEnabled = true
+                }
+            }
         }
     }
     
+// MARK: - recordButton
     @IBAction func recButton(_ sender: UIButton) {
         
         if recorder == nil {
@@ -78,18 +74,19 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
         
         if recorder != nil && !recorder.isRecording {
             delete.isEnabled = true
-            if IsOnPause {
+            if isPlayerStopped {
                 makePlay()
                 rec.setImage(stopImageGray, for: .normal)
             } else {
-                player.pause()
+                makeStop()
                 rec.setImage(playImage, for: .normal)
             }
-            IsOnPause = !IsOnPause
+            isPlayerStopped = !isPlayerStopped
             return
         }
     }
     
+// MARK: - play function
     func makePlay() {
         print("\(#function)")
         var url:URL?
@@ -111,13 +108,13 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
             self.player = nil
             print(error.localizedDescription)
         }
-        self.meterTimer = Timer.scheduledTimer(timeInterval: 0.1,
-                                          target:self,
-                                          selector:#selector(self.updateAudioMeter(_:)),
-                                          userInfo:nil,
-                                          repeats:true)
+
     }
     
+    func whatIfNotPlayedAnymore() {
+    }
+    
+// MARK: - stop function
     func makeStop() {
         print("\(#function)")
         recorder?.stop()
@@ -133,8 +130,11 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
             print("could not make session inactive")
             print(error.localizedDescription)
         }
+        playerTimerBar.text = "00:00"
+        progressBar.trackTintColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     }
     
+// MARK: - deleteButton
     @IBAction func deleteButton(_ sender: UIButton) {
         let url = self.soundFileURL!
         makeStop()
@@ -148,18 +148,19 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
             print("error deleting recording")
         }
         progressBar.progress = 0
-        delete.isEnabled = false
+        recorderTimerBar.text = "00:00"
         rec.setImage(recImage, for: .normal)
+        delete.isEnabled = false
         recorder = nil
     }
     
+// MARK: - recording functions
     func recordWithPermission(_ setup:Bool) {
         print("\(#function)")
         
         AVAudioSession.sharedInstance().requestRecordPermission() {
             [unowned self] granted in
             if granted {
-                
                 DispatchQueue.main.async {
                     print("Permission to record granted")
                     self.setSessionPlayAndRecord()
@@ -167,7 +168,7 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
                         self.setupRecorder()
                     }
                     self.recorder.record()
-                    self.meterTimer = Timer.scheduledTimer(timeInterval: 0.1,
+                    self.meterTimer = Timer.scheduledTimer(timeInterval: 0.05,
                                                            target:self,
                                                            selector:#selector(self.updateAudioMeter(_:)),
                                                            userInfo:nil,

@@ -494,6 +494,20 @@
                                                         <action selector="recButton:" destination="RRh-b1-TXx" eventType="touchUpInside" id="b4O-jb-peq"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2yB-zl-67B">
+                                                    <rect key="frame" x="298" y="83" width="5" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1x-fP-Slp">
+                                                    <rect key="frame" x="257" y="83" width="36" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                         </tableViewCellContentView>
@@ -501,9 +515,10 @@
                                             <outlet property="addTextLabel" destination="u2a-qR-ffH" id="ILc-rW-0fo"/>
                                             <outlet property="delete" destination="Q8M-5z-NPE" id="rq2-qB-XtN"/>
                                             <outlet property="mainTextLabel" destination="tlS-3e-21m" id="EKJ-Nw-CcR"/>
+                                            <outlet property="playerTimerBar" destination="n1x-fP-Slp" id="Gwd-FR-sXq"/>
                                             <outlet property="progressBar" destination="iv7-C6-DgF" id="Of1-DF-PZp"/>
                                             <outlet property="rec" destination="zuh-l9-vnw" id="CaC-ej-sR3"/>
-                                            <outlet property="timerBar" destination="ClI-3h-FqK" id="BI1-rP-pAo"/>
+                                            <outlet property="recorderTimerBar" destination="ClI-3h-FqK" id="nkU-MM-h9T"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
