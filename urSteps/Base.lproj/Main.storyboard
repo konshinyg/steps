@@ -362,6 +362,7 @@
                     <tabBarItem key="tabBarItem" title="Профиль" image="user_icon_24.png" selectedImage="user_icon_24.png" id="pii-TO-gYD"/>
                     <toolbarItems/>
                     <connections>
+                        <outlet property="adressLabel" destination="jcV-tR-UH6" id="cKL-rl-F2z"/>
                         <outlet property="companyLabel" destination="CzD-QO-WIp" id="c25-Mq-ahi"/>
                         <outlet property="nameLabel" destination="RDY-4g-zZf" id="ESU-v6-D8Z"/>
                         <outlet property="phoneLabel" destination="gzx-oi-121" id="lwC-mr-gQL"/>

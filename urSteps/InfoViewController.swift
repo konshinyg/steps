@@ -8,49 +8,42 @@ class InfoViewController: UIViewController {
     @IBOutlet weak var surnameLabel: UITextField!
     @IBOutlet weak var phoneLabel: UITextField!
     @IBOutlet weak var companyLabel: UITextView!
+    @IBOutlet weak var adressLabel: UITextField!
 
+    var dataArray = [userData]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = getURL(token: LoginViewController.token)
-        giveData(urlString: url)
-    }
-    
-    func getURL(token: String) -> String {
-        var urlString = "http://jsonplaceholder.typicode.com/users"
-        switch token {
+        let urlString = "http://facepalmapp.com/cornelius.json"
+        switch LoginViewController.token {
         case "aabc":
-            urlString.append("/1")
+            giveData(urlString: urlString, token: 1)
             break
         case "babc":
-            urlString.append("/2")
+            giveData(urlString: urlString, token: 2)
             break
         case "cabc":
-            urlString.append("/3")
+            giveData(urlString: urlString, token: 3)
             break
         default: break
         }
-        return urlString
     }
     
-    func giveData(urlString: String) {
+    func giveData(urlString: String, token: Int) {
         let url = URL(string: urlString)
         do {
             let urlConverted = try String(contentsOf: url!, encoding: .utf8)
             let parseToDict = parse(json: urlConverted)
-//            print(parseToDict!)
-            let data = testDataParse(dictionary: parseToDict!)
-            nameLabel.text = data.name
-            surnameLabel.text = data.username
-            phoneLabel.text = data.phone
-            companyLabel.text = data.companyArray.joined(separator: ",\n")
+            self.dataArray = testDataParser(dictionary: parseToDict!)
+            nameLabel.text = dataArray[token].name
+            surnameLabel.text = dataArray[token].username
+            phoneLabel.text = dataArray[token].phone
+            companyLabel.text = dataArray[token].companyBS + ",\n" +
+                                dataArray[token].companyName + ",\n" +
+                                dataArray[token].companyCatchPhrase
+            adressLabel.text = dataArray[token].addressCity
+            
         } catch {}
-    }
-    
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func parse(json: String) -> [String: Any]? {
@@ -64,28 +57,31 @@ class InfoViewController: UIViewController {
             return nil
         }
     }
-    
-    func testDataParse(dictionary: [String: Any]) -> testData {
-        let data = testData()
-        if let id = dictionary["id"] as? Int {
-            data.id = id
+
+    func testDataParser(dictionary: [String: Any]) -> [userData] {
+        
+        let jsonData = dictionary["results"] as! [AnyObject]
+        for json in jsonData {
+            let secData = userData()
+            secData.id = json["id"] as! Int
+            secData.username = json["username"] as! String
+            secData.name = json["name"] as! String
+            secData.email = json["email"] as! String
+            secData.phone = json["phone"] as! String
+            
+            let address = json["address"] as! [String : AnyObject]
+            secData.addressCity = address["city"] as! String
+            secData.addressStreet = address["street"] as! String
+            secData.addressSuite = address["suite"] as! String
+            secData.addressZipCode = address["zipcode"] as! String
+            
+            let company = json["company"] as! [String : AnyObject]
+            secData.companyBS = company["bs"] as! String
+            secData.companyName = company["name"] as! String
+            secData.companyCatchPhrase = company["catchPhrase"] as! String
+            
+            dataArray.append(secData)
         }
-        data.username = dictionary["username"] as! String
-        data.name = dictionary["name"] as! String
-        data.email = dictionary["email"] as! String
-        data.phone = dictionary["phone"] as! String
-        data.addresArray = convertDictToArray(dictionary: dictionary["address"] as! [String : Any])
-        data.companyArray = convertDictToArray(dictionary: dictionary["company"] as! [String : Any])
-        return data
+        return dataArray
     }
-    
-    func convertDictToArray(dictionary: [String: Any]) -> [String] {
-        var array = [String]()
-        for (_, v) in dictionary {
-            if v is String {
-                array.append(v as! String)
-            } else { }
-        }
-        return array
-    }    
 }

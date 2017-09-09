@@ -1,14 +1,18 @@
+// класс для записи данных пользователя
 
 import UIKit
 
-class UserData {
+class userData {
     var id = 0
+    var username = ""
+    var email = ""
     var name = ""
-    var surname = ""
-    var fatherName = ""
-    var gender = ""
-    var jobSearchStatus = ""
-    var birthdayDate = ""
-    var region = ""
-    var phone = ""
+    var addressCity = ""
+    var addressStreet = ""
+    var addressSuite = ""
+    var addressZipCode = ""
+    var companyBS = ""
+    var companyCatchPhrase = ""
+    var companyName = ""
+    var phone = ""    
 }

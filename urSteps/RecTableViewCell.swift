@@ -22,7 +22,8 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
     let recImage = UIImage(named: "rec_icon.png")
     let playImage = UIImage(named: "play_icon.png")
     let stopImageGray = UIImage(named: "stop-gray_icon.png")
-    var recTime = 0.0
+    var recordTime = 0.0
+
     override func awakeFromNib() { super.awakeFromNib() }
     override func setSelected(_ selected: Bool, animated: Bool) { super.setSelected(selected, animated: animated) }
 
@@ -41,12 +42,11 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
                 let sec = Int(player.currentTime.truncatingRemainder(dividingBy: 60))
                 let s = String(format: "%02d:%02d", min, sec)
                 playerTimerBar.text = s
-                progressBar.progress = Float(player.currentTime/recTime)
-                print("\(progressBar.progress)")
+                progressBar.progress = Float(player.currentTime/recordTime)
                 progressBar.trackTintColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
                 progressBar.progressTintColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
                 if !player.isPlaying {
-                    makeStop()
+                    stopOn()
                     rec.setImage(playImage, for: .normal)
                     isPlayerStopped = !isPlayerStopped
                     delete.isEnabled = true
@@ -66,8 +66,8 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
         }
         
         if recorder.isRecording {
-            recTime = recorder.currentTime
-            makeStop()
+            recordTime = recorder.currentTime
+            stopOn()
             rec.setImage(playImage, for: .normal)
             delete.isEnabled = true
             return
@@ -76,10 +76,10 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
         if !recorder.isRecording {
             delete.isEnabled = true
             if isPlayerStopped {
-                makePlay()
+                playOn()
                 rec.setImage(stopImageGray, for: .normal)
             } else {
-                makeStop()
+                stopOn()
                 rec.setImage(playImage, for: .normal)
             }
             isPlayerStopped = !isPlayerStopped
@@ -88,7 +88,7 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
     }
     
 // MARK: - play function
-    func makePlay() {
+    func playOn() {
         print("\(#function)")
         var url:URL?
         if self.recorder != nil {
@@ -116,7 +116,7 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
     }
     
 // MARK: - stop function
-    func makeStop() {
+    func stopOn() {
         print("\(#function)")
         recorder?.stop()
         player?.stop()
@@ -137,7 +137,7 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
 // MARK: - deleteButton
     @IBAction func deleteButton(_ sender: UIButton) {
         let url = self.soundFileURL!
-        makeStop()
+        stopOn()
         print("removing file at \(url.absoluteString)")
         let fileManager = FileManager.default
         
@@ -151,6 +151,7 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
         recorderTimerBar.text = "00:00"
         rec.setImage(recImage, for: .normal)
         delete.isEnabled = false
+        recorder.isMeteringEnabled = false
         recorder = nil
     }
     
@@ -197,15 +198,14 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
         print("writing to soundfile url: '\(soundFileURL!)'")
         
         if FileManager.default.fileExists(atPath: soundFileURL.absoluteString) {
-            // probably won't happen. want to do something about it?
             print("soundfile \(soundFileURL.absoluteString) exists")
         }
         
         let recordSettings:[String : Any] = [
             AVFormatIDKey:             kAudioFormatAppleLossless,
-            AVEncoderAudioQualityKey:  AVAudioQuality.max.rawValue,
+            AVEncoderAudioQualityKey:  AVAudioQuality.min.hashValue,
             AVEncoderBitRateKey :      32000,
-            AVNumberOfChannelsKey:     2,
+            AVNumberOfChannelsKey:     1,
             AVSampleRateKey :          44100.0
         ]
         
@@ -213,7 +213,7 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
         do {
             recorder = try AVAudioRecorder(url: soundFileURL, settings: recordSettings)
             recorder.delegate = self
-//            recorder.isMeteringEnabled = true
+            recorder.isMeteringEnabled = true
             recorder.prepareToRecord() // creates/overwrites the file at soundFileURL
         } catch {
             recorder = nil
@@ -227,7 +227,7 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
         
         let session = AVAudioSession.sharedInstance()
         do {
-            try session.setCategory(AVAudioSessionCategoryPlayAndRecord, with: .defaultToSpeaker)
+            try session.setCategory(AVAudioSessionCategoryPlayAndRecord, with: .allowAirPlay)
         } catch {
             print("could not set session category")
             print(error.localizedDescription)
