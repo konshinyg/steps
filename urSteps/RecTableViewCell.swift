@@ -202,7 +202,7 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
         }
         
         let recordSettings:[String : Any] = [
-            AVFormatIDKey:             kAudioFormatAppleLossless,
+            AVFormatIDKey:             kAudioFormatMPEG4AAC,
             AVEncoderAudioQualityKey:  AVAudioQuality.min.hashValue,
             AVEncoderBitRateKey :      32000,
             AVNumberOfChannelsKey:     1,
