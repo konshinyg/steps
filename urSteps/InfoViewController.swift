@@ -14,19 +14,19 @@ class InfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let urlString = "http://facepalmapp.com/cornelius.json"
-        switch LoginViewController.token {
-        case "aabc":
-            giveData(urlString: urlString, token: 1)
-            break
-        case "babc":
-            giveData(urlString: urlString, token: 2)
-            break
-        case "cabc":
-            giveData(urlString: urlString, token: 3)
-            break
-        default: break
-        }
+//        let urlString = "http://facepalmapp.com/cornelius.json"
+//        switch LoginViewController.token {
+//        case "aabc":
+//            giveData(urlString: urlString, token: 1)
+//            break
+//        case "babc":
+//            giveData(urlString: urlString, token: 2)
+//            break
+//        case "cabc":
+//            giveData(urlString: urlString, token: 3)
+//            break
+//        default: break
+//        }
     }
     
     func giveData(urlString: String, token: Int) {
