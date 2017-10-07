@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Ga-em-6tX">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Ga-em-6tX">
                                 <rect key="frame" x="16" y="253" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Q1e-fJ-VUa"/>
@@ -56,6 +56,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDw-j2-LXp">
+                                <rect key="frame" x="171" y="501" width="33" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="pass"/>
+                                <connections>
+                                    <action selector="loginPass:" destination="wtj-iw-t0M" eventType="touchUpInside" id="I5o-a6-bgG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -72,9 +80,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="email" destination="7Ga-em-6tX" id="zlc-LJ-QII"/>
                         <outlet property="loginDataLabel" destination="3a1-kN-ONK" id="PDD-5w-8Ge"/>
-                        <outlet property="password" destination="ybB-Hl-8rh" id="c2k-pJ-eSZ"/>
-                        <outlet property="username" destination="7Ga-em-6tX" id="ZDb-UL-11c"/>
+                        <outlet property="password" destination="ybB-Hl-8rh" id="vvw-g9-2fO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tuc-Jh-kMs" userLabel="First Responder" sceneMemberID="firstResponder"/>

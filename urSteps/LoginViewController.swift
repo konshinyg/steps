@@ -3,7 +3,8 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-    @IBOutlet weak var username: UITextField!
+
+    @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginDataLabel: UILabel!
 
@@ -18,6 +19,26 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
+    @IBAction func loginPass(_ sender: UIButton) {
+        BackendUtilities.sharedInstance.clientRepo.userByLogin(withEmail: email.text, password: password.text, success: { (client) -> Void in
+            NSLog("Successfully logged in.");
+            
+            // Display login confirmation
+            let alertController = UIAlertController(title: "Login", message:
+                "Successfully logged in", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }) { (error) -> Void in
+            NSLog("Error logging in.")
+            
+            // Display error alert
+            let alertController = UIAlertController(title: "Login", message:
+                "Login failed", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func enterData(_ sender: UIButton) {
         let user1 = "a"
         let pass1 = "a"
@@ -25,17 +46,17 @@ class LoginViewController: UIViewController {
         let pass2 = "b"
         let user3 = "c"
         let pass3 = "c"
-        if (username.text == user1 && password.text == pass1) {
+        if (email.text == user1 && password.text == pass1) {
             LoginViewController.token = user1 + "abc"
             LoginViewController.ukey = 1
             loginAccess()
         }
-        else if (username.text == user2 && password.text == pass2) {
+        else if (email.text == user2 && password.text == pass2) {
             LoginViewController.token = user2 + "abc"
             LoginViewController.ukey = 1
             loginAccess()
         }
-        else if (username.text == user3 && password.text == pass3) {
+        else if (email.text == user3 && password.text == pass3) {
             LoginViewController.token = user3 + "abc"
             LoginViewController.ukey = 1
             loginAccess()
@@ -43,7 +64,7 @@ class LoginViewController: UIViewController {
         else {
             loginDataLabel.text = "Неверные данные!"
         }
-        username.resignFirstResponder()
+        email.resignFirstResponder()
         password.resignFirstResponder()
     }
     
