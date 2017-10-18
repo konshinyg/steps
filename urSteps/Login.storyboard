@@ -39,14 +39,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czA-Rz-nsS">
-                                <rect key="frame" x="159.5" y="422" width="55" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="ВХОД"/>
-                                <connections>
-                                    <action selector="enterData:" destination="wtj-iw-t0M" eventType="touchUpInside" id="x8y-WX-nLr"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите учетные данные" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3a1-kN-ONK">
                                 <rect key="frame" x="80.5" y="186" width="213" height="37"/>
                                 <constraints>
@@ -56,12 +48,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDw-j2-LXp">
-                                <rect key="frame" x="171" y="501" width="33" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="pass"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czA-Rz-nsS">
+                                <rect key="frame" x="80" y="435" width="215" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="авторизация LoopBack"/>
                                 <connections>
-                                    <action selector="loginPass:" destination="wtj-iw-t0M" eventType="touchUpInside" id="I5o-a6-bgG"/>
+                                    <action selector="loginPass:" destination="wtj-iw-t0M" eventType="touchUpInside" id="JuO-h3-hk6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ywk-2m-mHf">
+                                <rect key="frame" x="111" y="548" width="153" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="простая авторизация"/>
+                                <connections>
+                                    <action selector="simpleLoginPass:" destination="wtj-iw-t0M" eventType="touchUpInside" id="hht-fu-mK0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -71,14 +71,16 @@
                             <constraint firstItem="ybB-Hl-8rh" firstAttribute="top" secondItem="7Ga-em-6tX" secondAttribute="bottom" constant="36" id="7Dh-dG-98q"/>
                             <constraint firstItem="7Ga-em-6tX" firstAttribute="leading" secondItem="819-GB-e7W" secondAttribute="leading" constant="16" id="FZ7-T2-EV3"/>
                             <constraint firstAttribute="trailing" secondItem="7Ga-em-6tX" secondAttribute="trailing" constant="16" id="LIC-GF-P2n"/>
+                            <constraint firstItem="czA-Rz-nsS" firstAttribute="centerX" secondItem="819-GB-e7W" secondAttribute="centerX" id="MzT-Mu-8ht"/>
                             <constraint firstItem="ybB-Hl-8rh" firstAttribute="leading" secondItem="819-GB-e7W" secondAttribute="leading" constant="16" id="PKe-MO-Yjn"/>
                             <constraint firstItem="7Ga-em-6tX" firstAttribute="top" secondItem="3a1-kN-ONK" secondAttribute="bottom" constant="30" id="SxG-ZE-cOS"/>
-                            <constraint firstItem="czA-Rz-nsS" firstAttribute="top" secondItem="ybB-Hl-8rh" secondAttribute="bottom" constant="73" id="WTr-5N-Nxq"/>
-                            <constraint firstItem="czA-Rz-nsS" firstAttribute="centerX" secondItem="819-GB-e7W" secondAttribute="centerX" id="him-Xk-xFp"/>
+                            <constraint firstItem="mvn-Gp-BJA" firstAttribute="top" secondItem="czA-Rz-nsS" secondAttribute="bottom" constant="196" id="VJ3-py-rmm"/>
                             <constraint firstAttribute="trailing" secondItem="ybB-Hl-8rh" secondAttribute="trailing" constant="16" id="jwq-Aw-FPI"/>
                             <constraint firstItem="3a1-kN-ONK" firstAttribute="centerX" secondItem="819-GB-e7W" secondAttribute="centerX" id="zIF-am-Tue"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="email" destination="7Ga-em-6tX" id="zlc-LJ-QII"/>
                         <outlet property="loginDataLabel" destination="3a1-kN-ONK" id="PDD-5w-8Ge"/>

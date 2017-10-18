@@ -11,10 +11,10 @@ import LoopBack
 
 class ClientRepository: LBUserRepository {
     override init!(className name: String!) {
-        super.init(className: "Clients")
+        super.init(className: "users")
     }
     override init() {
-        super.init(className: "Clients")
+        super.init(className: "users")
     }
 }
 

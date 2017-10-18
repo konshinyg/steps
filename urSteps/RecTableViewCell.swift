@@ -112,9 +112,6 @@ class RecTableViewCell: UITableViewCell, AVAudioRecorderDelegate, AVAudioPlayerD
 
     }
     
-    func whatIfNotPlayedAnymore() {
-    }
-    
 // MARK: - stop function
     func stopOn() {
         print("\(#function)")

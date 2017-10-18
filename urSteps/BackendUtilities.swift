@@ -21,5 +21,4 @@ class BackendUtilities  {
         adapter = appDelegate?.adapter as LBRESTAdapter!
         clientRepo = adapter.repository(with: ClientRepository.self) as! ClientRepository
     }
-
 }

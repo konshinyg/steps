@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    var adapter:LBRESTAdapter = LBRESTAdapter(url: URL(string: "https://api.yoursteps.ru"))
+    var adapter:LBRESTAdapter = LBRESTAdapter(url: URL(string: "https://yoursteps.ru/api/"))
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         

@@ -4,12 +4,17 @@ import UIKit
 
 class LeftSideViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var surname: UILabel!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var patronymic: UILabel!
+    
     var menuItems: [String] = ["Профиль", "HR-вопросы", "Настройки"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        name.text = UserDefaults.standard.object(forKey: "firstName") as? String
+        surname.text = UserDefaults.standard.object(forKey: "lastName") as? String
+        patronymic.text = UserDefaults.standard.object(forKey: "patronymic") as? String
     }
     
     override func didReceiveMemoryWarning() {

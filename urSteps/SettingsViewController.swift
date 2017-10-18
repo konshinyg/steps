@@ -4,10 +4,21 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    
+    @IBOutlet weak var settingsTextView: UITextView!
+    @IBOutlet weak var nameSurname: UILabel!
+    @IBOutlet weak var patronymic: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let name = UserDefaults.standard.object(forKey: "firstName") as! String
+        let surname = UserDefaults.standard.object(forKey: "lastName") as! String
+        nameSurname.text = surname + " " + name
+        patronymic.text = UserDefaults.standard.object(forKey: "patronymic") as? String
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
     }
 
     override func didReceiveMemoryWarning() {

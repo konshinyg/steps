@@ -4,51 +4,52 @@ import UIKit
 
 class InfoViewController: UIViewController {
     
-    @IBOutlet weak var nameLabel: UITextField!
-    @IBOutlet weak var surnameLabel: UITextField!
-    @IBOutlet weak var phoneLabel: UITextField!
-    @IBOutlet weak var companyLabel: UITextView!
-    @IBOutlet weak var adressLabel: UITextField!
-
+    @IBOutlet weak var firstNameLabel: UITextField!
+    @IBOutlet weak var lastNameLabel: UITextField!
+    @IBOutlet weak var patronymic: UITextField!
+    @IBOutlet weak var sex: UITextField!
+    @IBOutlet weak var birthdayDate: UITextField!
+    @IBOutlet weak var phone: UITextField!
+    @IBOutlet weak var country: UITextField!
+    @IBOutlet weak var region: UITextField!
+    @IBOutlet weak var jobSearchStatus: UITextField!
+    @IBOutlet weak var wishSalaryMin: UITextField!
+    @IBOutlet weak var wishSalaryMax: UITextField!
+    @IBOutlet weak var emailAdress: UITextField!
+    
     var dataArray = [userData]()
+    
+    var currentUser: Client
+    
+    required init(coder aDecoder: NSCoder) {
+        currentUser = Client()
+        super.init(coder: aDecoder)!
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let urlString = "http://facepalmapp.com/cornelius.json"
-//        switch LoginViewController.token {
-//        case "aabc":
-//            giveData(urlString: urlString, token: 1)
-//            break
-//        case "babc":
-//            giveData(urlString: urlString, token: 2)
-//            break
-//        case "cabc":
-//            giveData(urlString: urlString, token: 3)
-//            break
-//        default: break
-//        }
+        BackendUtilities.sharedInstance.clientRepo.findCurrentUser(success: { (client) -> Void in
+            NSLog("Found user, see InfoViewController")
+            self.currentUser = client as! Client
+        }) { (error) -> Void in
+            NSLog("Error fetching user, see InfoViewController")
+        }
+        giveData()
     }
     
-    func giveData(urlString: String, token: Int) {
-        let url = URL(string: urlString)
-        do {
-            let urlConverted = try String(contentsOf: url!, encoding: .utf8)
-            let parseToDict = parse(json: urlConverted)
-            self.dataArray = testDataParser(dictionary: parseToDict!)
-            nameLabel.text = dataArray[token].name
-            surnameLabel.text = dataArray[token].username
-            phoneLabel.text = dataArray[token].phone
-            companyLabel.text = dataArray[token].companyBS + ",\n" +
-                                dataArray[token].companyName + ",\n" +
-                                dataArray[token].companyCatchPhrase
-            adressLabel.text = dataArray[token].addressCity
-            
-        } catch {}
+    func giveData() {
+        firstNameLabel.text = UserDefaults.standard.object(forKey: "firstName") as? String
+        lastNameLabel.text = UserDefaults.standard.object(forKey: "lastName") as? String
+        patronymic.text = UserDefaults.standard.object(forKey: "patronymic") as? String
+        phone.text = UserDefaults.standard.object(forKey: "phone") as? String
+        sex.text = UserDefaults.standard.object(forKey: "sex") as? String
+        birthdayDate.text = UserDefaults.standard.object(forKey: "birthday") as? String
+
     }
     
     func parse(json: String) -> [String: Any]? {
         guard let data = json.data(using: .utf8, allowLossyConversion: false)
-             else { return nil }
+            else { return nil }
         do {
             return try JSONSerialization.jsonObject(
                 with: data, options: []) as? [String: Any]
@@ -57,7 +58,7 @@ class InfoViewController: UIViewController {
             return nil
         }
     }
-
+    
     func testDataParser(dictionary: [String: Any]) -> [userData] {
         
         let jsonData = dictionary["results"] as! [AnyObject]
