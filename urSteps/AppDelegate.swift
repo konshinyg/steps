@@ -10,8 +10,6 @@ import UIKit
 import CoreData
 import LoopBack
 
-var logController: UIViewController?
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -20,13 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var adapter:LBRESTAdapter = LBRESTAdapter(url: URL(string: "https://yoursteps.ru/api/"))
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        let loginStoryBoard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
-        logController = loginStoryBoard.instantiateViewController(withIdentifier: "loginViewID") as! LoginViewController
-        
-        window!.rootViewController = logController
-        window!.makeKeyAndVisible()
-        // Override point for customization after application launch.
         return true
     }
     

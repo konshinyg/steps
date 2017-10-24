@@ -18,33 +18,25 @@ class InfoViewController: UIViewController {
     @IBOutlet weak var emailAdress: UITextField!
     
     var dataArray = [userData]()
-    
-    var currentUser: Client
-    
-    required init(coder aDecoder: NSCoder) {
-        currentUser = Client()
-        super.init(coder: aDecoder)!
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        BackendUtilities.sharedInstance.clientRepo.findCurrentUser(success: { (client) -> Void in
-            NSLog("Found user, see InfoViewController")
-            self.currentUser = client as! Client
-        }) { (error) -> Void in
-            NSLog("Error fetching user, see InfoViewController")
-        }
-        giveData()
+        let accessToken = UserDefaults.standard.object(forKey: "access_token") as! String
+        let id = UserDefaults.standard.object(forKey: "userID") as! Int
+        ClientControl.currentClient.requestJSON(stringUrl: stringURL, token: accessToken, userID: id)
     }
     
-    func giveData() {
+    override func viewWillAppear(_ animated: Bool) {
+//        parseData()
+    }
+    
+    func parseData() {
         firstNameLabel.text = UserDefaults.standard.object(forKey: "firstName") as? String
         lastNameLabel.text = UserDefaults.standard.object(forKey: "lastName") as? String
         patronymic.text = UserDefaults.standard.object(forKey: "patronymic") as? String
         phone.text = UserDefaults.standard.object(forKey: "phone") as? String
         sex.text = UserDefaults.standard.object(forKey: "sex") as? String
         birthdayDate.text = UserDefaults.standard.object(forKey: "birthday") as? String
-
     }
     
     func parse(json: String) -> [String: Any]? {

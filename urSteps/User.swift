@@ -11,9 +11,14 @@ import Foundation
 class User {
     
     var dictionary: NSDictionary?
+    var data: Data?
     
     init(dictionary: NSDictionary) {
         self.dictionary = dictionary
+    }
+    
+    init(data: Data) {
+        self.data = data
     }
     
     static var _currentUser: User?
@@ -21,12 +26,10 @@ class User {
     class var currentUser: User? {
         get {
             if (_currentUser == nil) {
-                let defaults = UserDefaults.standard
-                let userData = defaults.object(forKey: "currentUser") as? Data
+                let userData = UserDefaults.standard.object(forKey: "currentUser") as? Data
                 
                 if let userData = userData {
                     let dictionary = try! JSONSerialization.jsonObject(with: userData, options: []) as! NSDictionary
-                    
                     _currentUser = User(dictionary: dictionary)
                 }
             }
@@ -36,13 +39,10 @@ class User {
         set(user) {
             _currentUser = user
             
-            let defaults = UserDefaults.standard
-            
             if let user = user {
-                let data = try! JSONSerialization.data(withJSONObject: user.dictionary!, options: [])
-                defaults.set(data, forKey: "currentUser")
+                UserDefaults.standard.set(user.data, forKey: "currentUser")
             } else {
-                defaults.set(nil, forKey: "currentUser")
+                UserDefaults.standard.set(nil, forKey: "currentUser")
             }
         }
     }

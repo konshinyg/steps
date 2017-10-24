@@ -12,7 +12,6 @@
 		1306655A1F5DF8EB004D54B9 /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 130665531F5DF8EB004D54B9 /* MMDrawerController.m */; };
 		1306655B1F5DF8EB004D54B9 /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = 130665561F5DF8EB004D54B9 /* MMDrawerVisualState.m */; };
 		1306655C1F5DF8EB004D54B9 /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 130665581F5DF8EB004D54B9 /* UIViewController+MMDrawerController.m */; };
-		1306655E1F5E080D004D54B9 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1306655D1F5E080D004D54B9 /* Login.storyboard */; };
 		132560FA1F5851E300ABA71E /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132560F91F5851E300ABA71E /* InfoViewController.swift */; };
 		134266D01F3D203900018BCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134266CF1F3D203900018BCB /* AppDelegate.swift */; };
 		134266D21F3D203900018BCB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134266D11F3D203900018BCB /* LoginViewController.swift */; };
@@ -35,6 +34,9 @@
 		138AAE2D1F610CAC008D729F /* user_icon_24.png in Resources */ = {isa = PBXBuildFile; fileRef = 138AAE2B1F610CAC008D729F /* user_icon_24.png */; };
 		138AAE2E1F610CAC008D729F /* sound_icon_24.png in Resources */ = {isa = PBXBuildFile; fileRef = 138AAE2C1F610CAC008D729F /* sound_icon_24.png */; };
 		13D5D1EE1F63A38F00AADA27 /* userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D5D1ED1F63A38F00AADA27 /* userData.swift */; };
+		13F954AE1F9EB51700A1B3B9 /* Sessions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F954AD1F9EB51700A1B3B9 /* Sessions.swift */; };
+		13F954B21F9EF51000A1B3B9 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F954B11F9EF51000A1B3B9 /* SplashViewController.swift */; };
+		13F954B41F9EFCC700A1B3B9 /* ClientControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F954B31F9EFCC700A1B3B9 /* ClientControl.swift */; };
 		13FF6F751F5DEDD9000D0C99 /* LeftSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF6F741F5DEDD9000D0C99 /* LeftSideViewController.swift */; };
 		13FF6F771F5DEE1A000D0C99 /* Avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 13FF6F761F5DEE1A000D0C99 /* Avatar.png */; };
 		13FF6F7A1F5DEE58000D0C99 /* menuCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF6F791F5DEE58000D0C99 /* menuCustomTableViewCell.swift */; };
@@ -54,7 +56,6 @@
 		130665561F5DF8EB004D54B9 /* MMDrawerVisualState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerVisualState.m; sourceTree = "<group>"; };
 		130665571F5DF8EB004D54B9 /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
 		130665581F5DF8EB004D54B9 /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
-		1306655D1F5E080D004D54B9 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		132560F91F5851E300ABA71E /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		134266CC1F3D203900018BCB /* urSteps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = urSteps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		134266CF1F3D203900018BCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +80,9 @@
 		138AAE2B1F610CAC008D729F /* user_icon_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_icon_24.png; sourceTree = "<group>"; };
 		138AAE2C1F610CAC008D729F /* sound_icon_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sound_icon_24.png; sourceTree = "<group>"; };
 		13D5D1ED1F63A38F00AADA27 /* userData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
+		13F954AD1F9EB51700A1B3B9 /* Sessions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sessions.swift; sourceTree = "<group>"; };
+		13F954B11F9EF51000A1B3B9 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		13F954B31F9EFCC700A1B3B9 /* ClientControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientControl.swift; sourceTree = "<group>"; };
 		13FF6F741F5DEDD9000D0C99 /* LeftSideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSideViewController.swift; sourceTree = "<group>"; };
 		13FF6F761F5DEE1A000D0C99 /* Avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Avatar.png; sourceTree = "<group>"; };
 		13FF6F791F5DEE58000D0C99 /* menuCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuCustomTableViewCell.swift; sourceTree = "<group>"; };
@@ -114,21 +118,23 @@
 			name = sideMenuController;
 			sourceTree = "<group>";
 		};
-		1306655F1F5E086C004D54B9 /* LoginScreen */ = {
+		1306655F1F5E086C004D54B9 /* Client */ = {
 			isa = PBXGroup;
 			children = (
-				1306655D1F5E080D004D54B9 /* Login.storyboard */,
-				134266D11F3D203900018BCB /* LoginViewController.swift */,
+				13F954AD1F9EB51700A1B3B9 /* Sessions.swift */,
 				134BB9DC1F8954E600ACBECA /* BackendUtilities.swift */,
 				134BB9DD1F8954E600ACBECA /* ClientRepository.swift */,
+				13F954B31F9EFCC700A1B3B9 /* ClientControl.swift */,
 			);
-			name = LoginScreen;
+			name = Client;
 			sourceTree = "<group>";
 		};
 		130665601F5E1DF5004D54B9 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
 				134266D31F3D203900018BCB /* Main.storyboard */,
+				13F954B11F9EF51000A1B3B9 /* SplashViewController.swift */,
+				134266D11F3D203900018BCB /* LoginViewController.swift */,
 				132560F91F5851E300ABA71E /* InfoViewController.swift */,
 				134EBAC91F61855500950FED /* HRViewController.swift */,
 				134EBAC51F61807E00950FED /* RecTableViewCell.swift */,
@@ -166,7 +172,7 @@
 				134266CF1F3D203900018BCB /* AppDelegate.swift */,
 				1306654F1F5DF8EA004D54B9 /* urSteps-Bridging-Header.h */,
 				1306654E1F5DF8D4004D54B9 /* sideMenuController */,
-				1306655F1F5E086C004D54B9 /* LoginScreen */,
+				1306655F1F5E086C004D54B9 /* Client */,
 				130665601F5E1DF5004D54B9 /* MainScreen */,
 				134266D91F3D203900018BCB /* Assets.xcassets */,
 				134266DB1F3D203900018BCB /* LaunchScreen.storyboard */,
@@ -281,7 +287,6 @@
 				138AAE2E1F610CAC008D729F /* sound_icon_24.png in Resources */,
 				134266DA1F3D203900018BCB /* Assets.xcassets in Resources */,
 				13486CD51F61ADF400018BBF /* pause_icon.png in Resources */,
-				1306655E1F5E080D004D54B9 /* Login.storyboard in Resources */,
 				138AAE2D1F610CAC008D729F /* user_icon_24.png in Resources */,
 				13486CD91F61ADF400018BBF /* rec_icon.png in Resources */,
 				13486CD61F61ADF400018BBF /* stop-gray_icon.png in Resources */,
@@ -368,8 +373,11 @@
 				13D5D1EE1F63A38F00AADA27 /* userData.swift in Sources */,
 				134266D01F3D203900018BCB /* AppDelegate.swift in Sources */,
 				134EBACA1F61855500950FED /* HRViewController.swift in Sources */,
+				13F954B21F9EF51000A1B3B9 /* SplashViewController.swift in Sources */,
+				13F954AE1F9EB51700A1B3B9 /* Sessions.swift in Sources */,
 				1306655C1F5DF8EB004D54B9 /* UIViewController+MMDrawerController.m in Sources */,
 				13FF6F751F5DEDD9000D0C99 /* LeftSideViewController.swift in Sources */,
+				13F954B41F9EFCC700A1B3B9 /* ClientControl.swift in Sources */,
 				1306655A1F5DF8EB004D54B9 /* MMDrawerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
