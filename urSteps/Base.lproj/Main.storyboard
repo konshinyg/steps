@@ -733,7 +733,7 @@
                                 <rect key="frame" x="16" y="57" width="343" height="170"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Фамилия + Имя" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JW0-Im-j04">
-                                        <rect key="frame" x="91" y="8" width="180" height="21"/>
+                                        <rect key="frame" x="116" y="8" width="180" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -744,24 +744,20 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Отчество" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQ7-Y6-jQ3">
-                                        <rect key="frame" x="91" y="31" width="180" height="21"/>
+                                        <rect key="frame" x="116" y="31" width="180" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="FWV-XL-en4">
-                                        <rect key="frame" x="8" y="8" width="64" height="64"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pE-lA-HNh">
-                                        <rect key="frame" x="91" y="58" width="166" height="14"/>
+                                        <rect key="frame" x="116" y="58" width="47" height="14"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <attributedString key="attributedText">
-                                            <fragment content="Мужчина, родился 24.04.1985 (32 года)">
+                                            <fragment content="Мужчина,">
                                                 <attributes>
                                                     <color key="NSColor" red="0.27450980390000002" green="0.2784313725" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" size="8" name="PTSerif-Regular"/>
+                                                    <font key="NSFont" size="9" name="PTSerif-Regular"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -769,13 +765,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIz-F1-uQ7">
-                                        <rect key="frame" x="8" y="89" width="80" height="15"/>
+                                        <rect key="frame" x="8" y="89" width="100" height="15"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <attributedString key="attributedText">
-                                            <fragment content="Регион проживания">
+                                            <fragment content="Регион проживания:">
                                                 <attributes>
                                                     <color key="NSColor" red="0.27450980390000002" green="0.2784313725" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" size="8" name="PTSerif-Regular"/>
+                                                    <font key="NSFont" size="9" name="PTSerif-Regular"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -786,10 +782,10 @@
                                         <rect key="frame" x="8" y="119" width="80" height="15"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <attributedString key="attributedText">
-                                            <fragment content="Телефон">
+                                            <fragment content="Телефон:">
                                                 <attributes>
                                                     <color key="NSColor" red="0.27450980390000002" green="0.2784313725" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" size="8" name="PTSerif-Regular"/>
+                                                    <font key="NSFont" size="9" name="PTSerif-Regular"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -797,19 +793,79 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVI-bq-G6P">
-                                        <rect key="frame" x="8" y="149" width="80" height="15"/>
+                                        <rect key="frame" x="8" y="149" width="100" height="15"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <attributedString key="attributedText">
-                                            <fragment content="Электронная почта">
+                                            <fragment content="Электронная почта:">
                                                 <attributes>
                                                     <color key="NSColor" red="0.27450980390000002" green="0.2784313725" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" size="8" name="PingFangHK-Regular"/>
+                                                    <font key="NSFont" size="9" name="PTSerif-Regular"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efD-X5-haZ">
+                                        <rect key="frame" x="116" y="89" width="160" height="15"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Санкт-Петербург">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.27450980392156865" green="0.27843137254901962" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="9" name="PTSerif-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="clipping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wiA-gJ-QPG">
+                                        <rect key="frame" x="116" y="119" width="120" height="15"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="8-xxx-xxx-xx-xx">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.27450980390000002" green="0.2784313725" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="9" name="PTSerif-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Zp-ra-h2r">
+                                        <rect key="frame" x="116" y="149" width="160" height="15"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="xxx@xxx.com">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.27450980390000002" green="0.2784313725" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="9" name="PTSerif-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jb4-k2-VPh">
+                                        <rect key="frame" x="162" y="58" width="160" height="14"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="родился 24.04.1985 (32 года)">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.27450980390000002" green="0.2784313725" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="9" name="PTSerif-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="FWV-XL-en4">
+                                        <rect key="frame" x="8" y="1" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -836,14 +892,20 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Настройки" image="settings_icon_24.png" selectedImage="settings_icon_24.png" id="4Kp-kH-NCC"/>
                     <connections>
+                        <outlet property="avatarImage" destination="FWV-XL-en4" id="gQk-eO-MMu"/>
+                        <outlet property="birthday" destination="Jb4-k2-VPh" id="bR7-hc-2zI"/>
+                        <outlet property="emailLabel" destination="7Zp-ra-h2r" id="snK-EP-2fh"/>
                         <outlet property="nameSurname" destination="JW0-Im-j04" id="DeN-ZK-WHi"/>
                         <outlet property="patronymic" destination="jQ7-Y6-jQ3" id="VVi-hj-xYP"/>
+                        <outlet property="phone" destination="wiA-gJ-QPG" id="8U9-jj-0OA"/>
+                        <outlet property="region" destination="efD-X5-haZ" id="hNz-Kk-esh"/>
                         <outlet property="settingsTextView" destination="2xk-9t-7ov" id="ZAu-Oe-5dU"/>
+                        <outlet property="sex" destination="3pE-lA-HNh" id="zc4-78-LaT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rsa-sF-1ET" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4244" y="-1788"/>
+            <point key="canvasLocation" x="4244" y="-1788.7556221889056"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="80k-Dj-hSc">

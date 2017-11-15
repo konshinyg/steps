@@ -12,26 +12,26 @@ class SplashViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if UserDefaults.standard.object(forKey: "access_token") != nil {
-            gotoTabBar()
-        } else {
-            gotoLogin()
+        print("SplashViewController viewDidLoad")
+
+        ClientControl.currentClient.requestJSON()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            print("SplashViewController: TOKEN = ", UserDefaults.standard.object(forKey: "access_token") as Any)
+            if UserDefaults.standard.object(forKey: "access_token") != nil {
+                print("-- gotoBarTab")
+                self.gotoTabBar()
+            } else {
+                print("-- gotoLogin")
+                self.gotoLogin()
+            }
         }
     }
     
     func gotoLogin() {
-        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-        let vc = storyBoard.instantiateViewController(withIdentifier: "loginViewID") as! LoginViewController
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = vc
-        self.dismiss(animated: true, completion: nil)
+        self.performSegue(withIdentifier: "splashLoginSegue", sender: self)
     }
     
     func gotoTabBar() {
-        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-        let vc = storyBoard.instantiateViewController(withIdentifier: "tabBarID") as! UITabBarController
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = vc
-        self.dismiss(animated: true, completion: nil)
+        self.performSegue(withIdentifier: "splashTabBarSegue", sender: self)
     }
 }

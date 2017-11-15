@@ -12,14 +12,20 @@ class LeftSideViewController: UIViewController, UITableViewDelegate, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        name.text = UserDefaults.standard.object(forKey: "firstName") as? String
-        surname.text = UserDefaults.standard.object(forKey: "lastName") as? String
-        patronymic.text = UserDefaults.standard.object(forKey: "patronymic") as? String
+        parseData()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func parseData() {
+        if let user = User.currentUser?.dictionary {
+            name.text = user["firstName"] as? String
+            surname.text = user["lastName"] as? String
+            patronymic.text = user["patronymic"] as? String
+        }
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

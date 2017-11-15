@@ -33,7 +33,6 @@
 		138AAE2A1F610C42008D729F /* settings_icon_24.png in Resources */ = {isa = PBXBuildFile; fileRef = 138AAE291F610C42008D729F /* settings_icon_24.png */; };
 		138AAE2D1F610CAC008D729F /* user_icon_24.png in Resources */ = {isa = PBXBuildFile; fileRef = 138AAE2B1F610CAC008D729F /* user_icon_24.png */; };
 		138AAE2E1F610CAC008D729F /* sound_icon_24.png in Resources */ = {isa = PBXBuildFile; fileRef = 138AAE2C1F610CAC008D729F /* sound_icon_24.png */; };
-		13D5D1EE1F63A38F00AADA27 /* userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D5D1ED1F63A38F00AADA27 /* userData.swift */; };
 		13F954AE1F9EB51700A1B3B9 /* Sessions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F954AD1F9EB51700A1B3B9 /* Sessions.swift */; };
 		13F954B21F9EF51000A1B3B9 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F954B11F9EF51000A1B3B9 /* SplashViewController.swift */; };
 		13F954B41F9EFCC700A1B3B9 /* ClientControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F954B31F9EFCC700A1B3B9 /* ClientControl.swift */; };
@@ -79,7 +78,6 @@
 		138AAE291F610C42008D729F /* settings_icon_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_icon_24.png; sourceTree = "<group>"; };
 		138AAE2B1F610CAC008D729F /* user_icon_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_icon_24.png; sourceTree = "<group>"; };
 		138AAE2C1F610CAC008D729F /* sound_icon_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sound_icon_24.png; sourceTree = "<group>"; };
-		13D5D1ED1F63A38F00AADA27 /* userData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
 		13F954AD1F9EB51700A1B3B9 /* Sessions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sessions.swift; sourceTree = "<group>"; };
 		13F954B11F9EF51000A1B3B9 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		13F954B31F9EFCC700A1B3B9 /* ClientControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientControl.swift; sourceTree = "<group>"; };
@@ -141,7 +139,6 @@
 				13804B001F58645C005D2E10 /* SettingsViewController.swift */,
 				13FF6F741F5DEDD9000D0C99 /* LeftSideViewController.swift */,
 				13FF6F791F5DEE58000D0C99 /* menuCustomTableViewCell.swift */,
-				13D5D1ED1F63A38F00AADA27 /* userData.swift */,
 				13054A451F925A8A00D97093 /* User.swift */,
 			);
 			name = MainScreen;
@@ -370,7 +367,6 @@
 				132560FA1F5851E300ABA71E /* InfoViewController.swift in Sources */,
 				13FF6F7A1F5DEE58000D0C99 /* menuCustomTableViewCell.swift in Sources */,
 				134EBAC61F61807E00950FED /* RecTableViewCell.swift in Sources */,
-				13D5D1EE1F63A38F00AADA27 /* userData.swift in Sources */,
 				134266D01F3D203900018BCB /* AppDelegate.swift in Sources */,
 				134EBACA1F61855500950FED /* HRViewController.swift in Sources */,
 				13F954B21F9EF51000A1B3B9 /* SplashViewController.swift in Sources */,

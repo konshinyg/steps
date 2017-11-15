@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 import LoopBack
 
+// var centerContainer: MMDrawerController?
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     

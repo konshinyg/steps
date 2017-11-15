@@ -3,7 +3,7 @@
 import UIKit
 
 class InfoViewController: UIViewController {
-    
+        
     @IBOutlet weak var firstNameLabel: UITextField!
     @IBOutlet weak var lastNameLabel: UITextField!
     @IBOutlet weak var patronymic: UITextField!
@@ -17,64 +17,30 @@ class InfoViewController: UIViewController {
     @IBOutlet weak var wishSalaryMax: UITextField!
     @IBOutlet weak var emailAdress: UITextField!
     
-    var dataArray = [userData]()
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        let accessToken = UserDefaults.standard.object(forKey: "access_token") as! String
-        let id = UserDefaults.standard.object(forKey: "userID") as! Int
-        ClientControl.currentClient.requestJSON(stringUrl: stringURL, token: accessToken, userID: id)
+        print("InfoViewController viewDidLoad")
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        parseData()
+        parseData()
     }
     
     func parseData() {
-        firstNameLabel.text = UserDefaults.standard.object(forKey: "firstName") as? String
-        lastNameLabel.text = UserDefaults.standard.object(forKey: "lastName") as? String
-        patronymic.text = UserDefaults.standard.object(forKey: "patronymic") as? String
-        phone.text = UserDefaults.standard.object(forKey: "phone") as? String
-        sex.text = UserDefaults.standard.object(forKey: "sex") as? String
-        birthdayDate.text = UserDefaults.standard.object(forKey: "birthday") as? String
-    }
-    
-    func parse(json: String) -> [String: Any]? {
-        guard let data = json.data(using: .utf8, allowLossyConversion: false)
-            else { return nil }
-        do {
-            return try JSONSerialization.jsonObject(
-                with: data, options: []) as? [String: Any]
-        } catch {
-            print("JSON Error: \(error)")
-            return nil
+        if let user = User.currentUser?.dictionary {
+            firstNameLabel.text = user["firstName"] as? String
+            lastNameLabel.text = user["lastName"] as? String
+            patronymic.text = user["patronymic"] as? String
+            phone.text = user["phone"] as? String
+            sex.text = user["sex"] as? String
+            birthdayDate.text = user["birthday"] as? String
         }
     }
     
-    func testDataParser(dictionary: [String: Any]) -> [userData] {
-        
-        let jsonData = dictionary["results"] as! [AnyObject]
-        for json in jsonData {
-            let secData = userData()
-            secData.id = json["id"] as! Int
-            secData.username = json["username"] as! String
-            secData.name = json["name"] as! String
-            secData.email = json["email"] as! String
-            secData.phone = json["phone"] as! String
-            
-            let address = json["address"] as! [String : AnyObject]
-            secData.addressCity = address["city"] as! String
-            secData.addressStreet = address["street"] as! String
-            secData.addressSuite = address["suite"] as! String
-            secData.addressZipCode = address["zipcode"] as! String
-            
-            let company = json["company"] as! [String : AnyObject]
-            secData.companyBS = company["bs"] as! String
-            secData.companyName = company["name"] as! String
-            secData.companyCatchPhrase = company["catchPhrase"] as! String
-            
-            dataArray.append(secData)
-        }
-        return dataArray
-    }
+//    @IBAction func menuButtonTapped(_ sender: Any) {
+//        let leftWidth = MMDrawerController.setMaximumLeftDrawerWidth(centerContainer!)
+//        leftWidth(320, true, nil)
+//        
+//        centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
+//    }
 }

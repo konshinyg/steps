@@ -11,6 +11,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("LoginViewController viewDidLoad")
+
         email.text = "varapaevov@mail.ru"
         password.text = "myUrStepspass1"
     }
@@ -27,7 +29,7 @@ class LoginViewController: UIViewController {
         BackendUtilities.sharedInstance.clientRepo.userByLogin(withEmail: user, password: pass, success: { (client) -> Void in
             NSLog("Successfully logged in.")
             let tokenLoopBack = BackendUtilities.sharedInstance.adapter.accessToken
-            
+            print(tokenLoopBack)
             // Display login confirmation
             //            let alertController = UIAlertController(title: "Login", message:
             //                "Successfully logged in", preferredStyle: UIAlertControllerStyle.alert)
@@ -48,12 +50,26 @@ class LoginViewController: UIViewController {
     // MARK: -- simple loginPass
     @IBAction func simpleLoginPass(_ sender: UIButton) {
         ClientControl.currentClient.requestToken(url: URL(string: stringURL + "login")!, email: email.text!, password: password.text!)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { 
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.loginAccess()
         }
     }
     
     func loginAccess() {
+//         let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//         let centerViewController = mainStoryBoard.instantiateViewController(withIdentifier: "infoViewID") as! InfoViewController
+//         
+//         let leftSideViewController = mainStoryBoard.instantiateViewController(withIdentifier: "LeftSideViewController") as! LeftSideViewController
+//         
+//         let leftSideNav = UINavigationController(rootViewController: leftSideViewController)
+//         let centerNav = UINavigationController(rootViewController: centerViewController)
+//         
+//         centerContainer = MMDrawerController(center: centerNav, leftDrawerViewController: leftSideNav)
+//         
+//         centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningCenterView
+//         centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.panningCenterView
+//         self.present(centerContainer!, animated: true, completion: nil)
+        
         let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = mainStoryBoard.instantiateViewController(withIdentifier: "tabBarID") as! UITabBarController
         self.present(vc, animated: true, completion: nil)

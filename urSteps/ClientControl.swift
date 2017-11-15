@@ -15,7 +15,8 @@ class ClientControl {
     static var currentClient = ClientControl()
     
     func requestToken(url: URL, email: String, password: String) {
-        print("first requesting to access token")
+        userDefClean()
+        print("ClientControl: requesting for new access token")
         let bodyData = "email=\(email)&password=\(password)"
         var request = URLRequest(url: url)
         request.httpMethod = "Post"
@@ -41,46 +42,87 @@ class ClientControl {
                     UserDefaults.standard.set(accessToken, forKey: "access_token")
                     UserDefaults.standard.set(id, forKey: "userID")
                     UserDefaults.standard.synchronize()
-                    self.requestJSON(stringUrl: stringURL, token: accessToken, userID: id)
                 }
             }
+            ClientControl.currentClient.requestJSON()
         }.resume()
     } // requestToken ends
     
-    func requestJSON(stringUrl: String, token: String, userID: Int) {
-        print("ok, we have access token, requesting for data")
-        guard let url = URL(string: stringUrl + String(describing: userID)) else { return }
+    func requestJSON(/*infoView: UIViewController*/) {
+        print("ClientControl: ok, we have access token, trying to request for JSON data")
+        
+        guard let accessToken = UserDefaults.standard.object(forKey: "access_token") as? String else {
+            print("did't pass guard accessToken")
+            return
+        }
+        
+        guard let id = UserDefaults.standard.object(forKey: "userID") as? Int else {
+            print("did't pass guard userID")
+            return
+        }
+        print("id: ", id, ", access_token: ", accessToken)
+
+        guard let url = URL(string: stringURL + String(describing: id)) else { return }
         var request = URLRequest(url: url)
-        request.addValue(token, forHTTPHeaderField: "Authorization")
+        print("request: ", request)
+        request.addValue(accessToken, forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) {
             data, response, error in
             
             if let response = response as? HTTPURLResponse {
                 print("response status: \(response.statusCode)")
-                print("response allHeaderFields: \(response.allHeaderFields as NSDictionary)")
+                if response.statusCode == 401 {
+                    UserDefaults.standard.removeObject(forKey: "access_token")
+                    print("ClientControl: failed to get JSON data. Bad access token removed")
+
+                    return
+                }
             }
             
             if let error = error {
                 let errString = error.localizedDescription
                 print(errString)
             } else if data != nil {
-                //                let user = User(data: data!)
-                //                User.currentUser = user
+                let user = User(data: data!)
+                User.currentUser = user
                 
-                do {
-                    let dictionary = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
-                    print(dictionary!)
-                    
-                } catch { print("error") }
+                if let dictionary = try? JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! NSDictionary {
+                    print("dictionary: ", dictionary)
+                }
             }
-            }.resume()
+        }.resume()
     } // requestJSON ends
     
+    func searchOldToken() {
+        print("searchOldToken")
+        let id = UserDefaults.standard.object(forKey: "userID") as! Int
+        let accessToken = UserDefaults.standard.object(forKey: "access_token") as! String
+        
+        let urlString = stringURL + String(describing: id) + "/accessTokens"
+        var request = URLRequest(url: URL(string: urlString)!)
+        request.httpMethod = "Get"
+        request.addValue(accessToken, forHTTPHeaderField: "Authorization")
+        print("request", request)
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("error", error)
+            } else if let response = response {
+                print("response", response)
+            }
+            if data != nil {
+                if let dictionary = try? JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! NSDictionary {
+                    print("dictionary: ", dictionary)
+                }
+            }
+        }.resume()
+    }
+    
     func userDefClean() {
+        print("\(#function)")
         for key in UserDefaults.standard.dictionaryRepresentation().keys {
             UserDefaults.standard.removeObject(forKey: key)
-            //            print(key, UserDefaults.standard.object(forKey: key)!)
         }
+        User.currentUser = nil
     }
 }
